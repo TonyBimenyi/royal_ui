@@ -1,14 +1,94 @@
-.custom-background{
+ion-content{
   background-image: url('../theme/images/login_bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
 }
 .form_bg
 {
-    background-color: #d5c58a;
+    background-color: #fffcef;
     width: 100%;
-    height: 100vh;
-    margin-top: 450px;
+    height: 55vh;
+    margin-top: 480px;
+    border-radius: 20px;
+    padding: 0px 30px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.form_bg img{
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
+.content h3{
+    text-align: center;
+    color: black;
+    font-weight: 700;
+    margin-top: 80px;
+}
+.content p{
+    color: black;
+    text-align: center;
+    font-weight: 300;
+    font-size: 12px;
+}
+.input{
+    margin: 5px;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    --border-color: #0056b3; /* Border color */
+    --border-style: solid; /* Border color */
+    --border-width:0px;
+    --padding-start: 20px; /* Adjust padding if necessary */
+    --padding-end: 12px; /* Adjust padding if necessary */
+    min-height: 50px !important;
+  box-shadow: 0px 0px 8px -2px rgba(7, 7, 7, 0.342); 
+   
+   
+    
+}
+.login_btn{
+    margin: 20px 20px 20px 20px;
+    height: 50px;
+    border-radius: 10px !important; 
+    color: white;
+    font-size: 15px;
+    --background: #3B713E;
+}
+
+
+.login-form span{
+    color: #3B713E;
+    font-weight: 700;
+}
+ion-input{
+    color: black;
+}
+ion-label{
+    color: black;
+}
+.login_content{
+    --background:transparent
+}
+
+ .login-form ion-item{
+    --background: transparent; /* Set item background color to white */
+    border-style: none;
+  }
+
+  .list-ios{
+    background: transparent;
+  }
+
+
+ 

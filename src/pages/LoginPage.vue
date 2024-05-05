@@ -1,18 +1,47 @@
 <template>
-    <ion-page :fullscreen="true" class="custom-background">
+    <ion-content class="login_content">
         <div class="form_bg">
-            
+            <img src="../theme/images/royale_logo.png" alt="">
+            <div class="content">
+                <div class="heading ion-padding" >
+                    <h3>Welcome Back!</h3>
+                    <p>Login to start earning points with every single sip of <strong>Amstel Royale !</strong> </p>
+                </div>
+                
+                <div class="login-form ">
+                    <div class="form-input">
+
+                        <ion-item class="username">
+                            <ion-input class="input" label="Email" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+                        </ion-item><br>
+                    </div>
+        
+                    <div class="form-input">
+                        <ion-item>
+                            <ion-input type="password" class="input" label="Password" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+                        </ion-item>
+
+                        <ion-button class="login_btn" expand="block">Login</ion-button>
+                        <p>You don't have account? <span>Register Here</span>.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </ion-page>
+    </ion-content>
 </template>
 <script>
-import { IonPage, IonContent, IonCard, IonCardHeader} from "@ionic/vue"
+import { IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton} from "@ionic/vue"
 export default {
     components:{
         IonPage,
         IonContent,
         IonCard,
-        IonCardHeader
+        IonCardHeader,
+        IonList,
+        IonItem,
+        IonInput,
+        IonIcon,
+        IonButton,
     }
 }
 </script>
