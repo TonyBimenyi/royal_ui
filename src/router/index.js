@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import MemoriesPage from "../pages/MemoriesPage.vue"
 import LoginPage from "../pages/LoginPage.vue"
+import RegisterPage from "../pages/RegisterPage.vue"
 
 const routes = [
   {
@@ -8,7 +9,8 @@ const routes = [
     redirect: '/memories'
   },
   {path:'/memories', component:MemoriesPage},
-  {path:'/login', component:LoginPage}
+  {path:'/login', component:LoginPage},
+  {path:'/register', component:RegisterPage}
  
 ]
 

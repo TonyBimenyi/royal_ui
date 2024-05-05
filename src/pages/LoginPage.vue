@@ -22,7 +22,7 @@
                         </ion-item>
 
                         <ion-button class="login_btn" expand="block">Login</ion-button>
-                        <p>You don't have account? <span>Register Here</span>.</p>
+                        <p>You don't have account? <a href="/register"><span>Register Here</span></a> .</p>
                     </div>
                 </div>
             </div>
@@ -32,6 +32,11 @@
 <script>
 import { IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton} from "@ionic/vue"
 export default {
+    methods: {
+    goToRegister() {
+      this.$router.push('/register');
+    }
+  },
     components:{
         IonPage,
         IonContent,

@@ -27,7 +27,9 @@ ion-content{
     transform: translateX(-50%);
 }
 
-
+.form-input a{
+    text-decoration: none;
+}
 .content h3{
     text-align: center;
     color: black;
@@ -66,7 +68,7 @@ ion-content{
 .login_btn{
     margin: 20px 20px 20px 20px;
     height: 50px;
-    border-radius: 10px !important; 
+    border-radius: 55px !important; 
     color: white;
     font-size: 15px;
     --background: #3B713E;
