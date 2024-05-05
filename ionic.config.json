@@ -1,0 +1,7 @@
+{
+  "name": "royal_burundi_cli",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
