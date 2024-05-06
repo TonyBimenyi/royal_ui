@@ -1,7 +1,7 @@
 .home_content{
     --background:#fffcef; 
-    --padding-start: 15px; /* Adjust padding if necessary */
-    --padding-end: 15px; /* Adjust padding if necessary */
+    --padding-start: 0px; /* Adjust padding if necessary */
+    --padding-end: 0px; /* Adjust padding if necessary */
     --padding-top:20px;
   }
 
@@ -12,7 +12,14 @@
 
 .home_content ion-card{
     --background:white;
+    margin:20px 20px
 }
+.list_pro{
+    background-color: transparent; /* Set item background color to white */
+    border-style: none;
+    padding: 5px;
+  }
+
 ion-card-title{
     color: black;
 }
@@ -70,6 +77,7 @@ ion-col {
     font-weight: 500;
     font-size: 12px;
 }
+
 .fa-indent{
     background-color: var(--vert_bg);
     color: var(--jaune_bg);
@@ -117,3 +125,67 @@ ion-col {
     --padding-bottom:10px;
     font-weight: 400;
 }
+.title_princi{
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 20px;
+    color: black;
+    margin-top: 30px;
+}
+
+
+
+
+
+ /* Basic CSS for the slider */
+ .slider {
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+  }
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .slide {
+    min-width: 100%;
+    flex: 1;
+  }
+  .slide img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  /* Navigation points */
+  .navigation {
+    position: absolute;
+    /* bottom: 10px; */
+    margin-bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+  .navigation-point {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #aaa;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  .navigation-point.active {
+    background-color: #333;
+  }
+  /* Card styles */
+  .card {
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0px 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  }
+  .card h2 {
+    margin-top: 0;
+  }
