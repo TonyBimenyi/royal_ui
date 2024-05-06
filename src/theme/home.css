@@ -23,7 +23,7 @@ ion-card-title{
 .user img{
     height: 55px;
     border-radius: 100px;
-    border: 5px solid #3B713E;
+    border: 5px solid var(--vert_bg);
 }
 .user .username{
     margin-top: 6px;
@@ -56,4 +56,64 @@ ion-card-title{
 ion-col {
     
     text-align: center;
-  }
+}
+.fa-outdent{
+    background-color: var(--rouge_bg);
+    color: var(--jaune_bg);
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 23px;
+}
+.point_txt p{
+    margin-top: 15px;
+    color: black;
+    font-weight: 500;
+    font-size: 12px;
+}
+.fa-indent{
+    background-color: var(--vert_bg);
+    color: var(--jaune_bg);
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 23px;
+}
+.fa-gift{
+    background-color: var(--jaune_bg);
+    color: var(--vert_bg);
+    border: 1px solid rgb(184, 184, 184);
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 23px;
+}
+
+.home_content h2{
+    color: black;
+    font-size: 22px;
+    font-weight: 700;
+}
+.list {
+    display: flex;
+}
+.list img{
+    height: 45px;
+    border-radius: 4px;
+    border: 5px solid var(--vert_bg);
+}
+.list .username{
+    margin-top: 0px;
+    margin-left: 10px;
+}
+.promo p{
+    font-size: 13px;
+    margin-top: 3px;
+    margin-left: 5px;
+}
+.button_order{
+    --background:var(--vert_bg);
+    color: white;
+    --padding-start:10px;
+    --padding-end:10px;
+    --padding-top:10px;
+    --padding-bottom:10px;
+    font-weight: 400;
+}
