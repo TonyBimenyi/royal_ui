@@ -39,3 +39,21 @@ ion-card-title{
     font-weight: 700;
     color: black;
 }
+.col_txt p{
+    color: black;
+    text-align: left;
+}
+.col_txt h3{
+    color: black;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: left;
+}
+.qr_code i{
+    font-size: 45px;
+    color: #9d1417;
+}
+ion-col {
+    
+    text-align: center;
+  }

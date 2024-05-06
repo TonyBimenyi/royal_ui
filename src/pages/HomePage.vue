@@ -19,11 +19,28 @@
                 <ion-card-content>
                     <ion-grid>
                         <ion-row>
-                        <ion-col>
+                        <ion-col class="col_txt">
                             <p>Your Points</p>
-                            <p>1.500</p>
+                            <h3>1500.00</h3>
                         </ion-col>
-                        <ion-col>2</ion-col>
+                        <ion-col></ion-col>
+                        <ion-col class="qr_code"><i class="fa fa-qrcode" aria-hidden="true"></i></ion-col>
+
+                        </ion-row>
+                    </ion-grid>
+                    <ion-grid>
+                        <ion-row>
+                        <ion-col class="">
+                            <i class="fa fa-outdent" aria-hidden="true"></i>
+                            <p>Send Points</p>
+                        </ion-col>
+                        <ion-col class="">
+                            <i class="fa fa-qrcode" aria-hidden="true"></i>
+                        </ion-col>
+                        <ion-col class="">
+                            <i class="fa fa-qrcode" aria-hidden="true"></i>
+                        </ion-col>
+                    
 
                         </ion-row>
                     </ion-grid>
