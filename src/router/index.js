@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import MemoriesPage from "../pages/MemoriesPage.vue"
 import LoginPage from "../pages/LoginPage.vue"
 import RegisterPage from "../pages/RegisterPage.vue"
+import HomePage from "../pages/HomePage.vue"
 
 const routes = [
   {
@@ -10,7 +11,8 @@ const routes = [
   },
   {path:'/memories', component:MemoriesPage},
   {path:'/login', component:LoginPage},
-  {path:'/register', component:RegisterPage}
+  {path:'/register', component:RegisterPage},
+  {path:'/home', component:HomePage},
  
 ]
 

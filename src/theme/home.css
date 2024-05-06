@@ -1,0 +1,41 @@
+.home_content{
+    --background:#fffcef; 
+    --padding-start: 15px; /* Adjust padding if necessary */
+    --padding-end: 15px; /* Adjust padding if necessary */
+    --padding-top:20px;
+  }
+
+  .home_content ion-item{
+    --background: transparent; /* Set item background color to white */
+    border-style: none;
+  }
+
+.home_content ion-card{
+    --background:white;
+}
+ion-card-title{
+    color: black;
+}
+
+.user{
+    display: flex;
+}
+.user img{
+    height: 55px;
+    border-radius: 100px;
+    border: 5px solid #3B713E;
+}
+.user .username{
+    margin-top: 6px;
+    margin-left: 10px;
+}
+.welcome_txt{
+    font-size: 15px;
+    font-weight: 300;
+    color: black;
+}
+.username_txt{
+    font-size: 17px;
+    font-weight: 700;
+    color: black;
+}
