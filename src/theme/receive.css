@@ -1,0 +1,79 @@
+.receive_content{
+    --background:var(--jaune_bg);
+}
+.toolbar_title{
+    margin-left: 19%;
+   
+}
+.tootbar{
+    --background:transparent;
+    color: black;
+}
+.address h1{
+    text-align: center;
+    color: black;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.cardw{
+    --background:white;
+    display: flex;
+    padding: 20px;
+    margin: 10px 85px;
+    border-radius: 30px;
+}
+.qrcode{
+    width: 100%;
+}
+.overlay-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ensure the image is above the QR code */
+    /* Adjust the width and height of the image as needed */
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 02px;
+  }
+  .img_log{
+    
+  }
+  .text-with-copy{
+    top: 10px;
+  }
+  .text-with-copy .text{
+    color: black;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .text-with-copy span{
+    background-color: var(--vert_bg);
+    color: white;
+    border-radius: 5px;
+    padding: 2px 6px;
+  }
+  .text-with-copy {
+    display: flex;
+    flex-direction: column;
+  }
+  .text-with-copy button{
+    margin: 20px 60px;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+  }
+  .listMethod {
+    color: black;
+    font-size: 13px;
+    margin: 0px 10px;
+  }
+  .title_list{
+    font-weight: 600;
+ 
+  }
