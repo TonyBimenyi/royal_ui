@@ -8,7 +8,7 @@ import ReceivePoints from "../pages/ReceivePoints.vue"
 const routes = [
   {
     path: '/',
-    redirect: '/memories'
+    redirect: '/home'
   },
   {path:'/memories', component:MemoriesPage},
   {path:'/login', component:LoginPage},
