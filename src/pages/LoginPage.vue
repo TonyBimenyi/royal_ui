@@ -5,7 +5,7 @@
             <div class="content">
                 <div class="heading ion-padding" >
                     <h3>Welcome Back!</h3>
-                    <p>Login to start earning points with every single sip of <strong>Amstel Royale !</strong> </p>
+                    <p>Start earning points with every single sip of <strong>Amstel Royale !</strong> </p>
                 </div>
                 
                 <div class="login-form ">
@@ -51,5 +51,6 @@ export default {
 }
 </script>
 <style src="../theme/login.css"> 
+
 
 </style>

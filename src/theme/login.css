@@ -3,28 +3,36 @@ ion-content{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  
 
+}
+.login_content{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 .form_bg
 {
     background-color: #fffcef;
     width: 100%;
-    height: auto;
-    bottom: 0;
-    /* margin-top: 480px; */
+    min-height: 10%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    padding: 0px 30px 01px 30px;
+    padding: 0px 15px 04px 15px;
+    margin-top: auto; /* Push to the bottom */
+    bottom: 0;
     position: fixed;
+
 
 }
 .form_bg img{
-    width: 100px; /* Adjust size as needed */
+    width: 70px; /* Adjust size as needed */
     height: auto;
     position: absolute;
-    top: -30px;
+    top: -20px;
     left: 50%;
     transform: translateX(-50%);
+    /* display: none; */
 }
 
 .form-input a{
@@ -34,32 +42,43 @@ ion-content{
     text-align: center;
     color: black;
     font-weight: 700;
-    margin-top: 80px;
+    margin-top: 50px;
+    font-size: 17px;
 }
 .content p{
     color: black;
     text-align: center;
     font-weight: 300;
-    font-size: 12px;
+    font-size: 10px;
 }
 .input{
-    margin: 5px;
+    margin: -80px 5px;
     color: black;
-    background-color: white;
-    border: none;
+    /* background-color: white; */
+    --border: none;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 13px;
     --border-color: #0056b3; /* Border color */
     --border-style: solid; /* Border color */
     --border-width:0px;
-    --padding-start: 20px; /* Adjust padding if necessary */
-    --padding-end: 12px; /* Adjust padding if necessary */
+    /* --padding-start: 20px; 
+    --padding-end: 12px;  */
+    --padding-top:0px !important;
+    --padding-bottom:0px !important;
     min-height: 50px !important;
-  box-shadow: 0px 0px 8px -2px rgba(7, 7, 7, 0.205); 
+  /* box-shadow: 0px 0px 8px -2px rgba(7, 7, 7, 0.205);  */
    
    
     
 }
+
+ion-input {
+    --border-width: 0; /* Set border width to 0 */ 
+    display: none;
+    --border-color: transparent !important; /* Set border color to transparent */
+}
+
+
 .item-md.item-block .item-inner {
     padding-right: 0px !important;
     border-bottom: #fff !important;
