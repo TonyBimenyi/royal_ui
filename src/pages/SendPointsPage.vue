@@ -52,7 +52,7 @@
                         fill="solid"
                         label=""
                         label-placement="defaut"
-                        placeholder="Entrez l'identifiant ou scanner"
+                        placeholder="Identifiant..."
                       ></ion-input>
                     </div>
                 </div>

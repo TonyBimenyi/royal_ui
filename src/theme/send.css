@@ -27,7 +27,7 @@ ion-content::part(background) {
     border: 5px solid var(--vert_bg);
 }
 .user .username{
-    margin-top: -13px;
+    margin-top: -15px;
     margin-left: 10px;
    
 }
@@ -89,8 +89,8 @@ hr {
     /* --padding-start: 10px; */
     --padding-end: 10px;
     font-size: 13px;
-    margin-top: -37px;
-    width: 200px;
+    margin-top: -39px;
+    width: 150px;
     --padding-top: 15px;
 }
 .qrcode{
