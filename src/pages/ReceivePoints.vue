@@ -12,7 +12,7 @@
           </div>
 
           <ion-card class="cardw">
-            <qrcode-vue class="qrcode" :value="'dshjjhsdf637'" :size="200" level="H" margin="0" background="black" foreground="white"/>
+            <qrcode-vue class="qrcode" :value="'dshjjhsdf637'" :size="180" level="H" margin="0" background="black" foreground="white"/>
             <div class="img_log">
              <img class="overlay-image" src="../theme/images/royale_logo.png" alt="Overlay Image">
             </div>
