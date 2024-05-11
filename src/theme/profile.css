@@ -24,7 +24,8 @@ ion-content::part(background) {
   .card {
     position: relative;
     height:230px;
-    background: linear-gradient(45deg, #4CAF50, #388E3C);
+    background: linear-gradient(45deg, #FFD700, #8B4513);
+
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -45,7 +46,7 @@ ion-content::part(background) {
 .user img{
     height: 50px;
     border-radius: 100px;
-    border: 5px solid var(--vert_bg);
+    border: 5px solid white ;
 }
 .user .username{
     margin-top: -15px;
@@ -57,35 +58,26 @@ ion-content::part(background) {
 }
 .welcome_txt{
     font-size: 15px;
-    font-weight: 300;
-    color: black;
-  
+    margin-top: 18px;
+    color: white;
+    font-weight: 700;
 }
 .username_txt{
     font-size: 13px;
-    font-weight: 400;
-    color: black;
-    font-weight: 700;
+    font-weight: 300;
+    color: white;
+    /* font-weight: 700; */
     margin-top: -17px;
 }
-.qr p{
-    font-size: 60px;
-    font-weight: 400;
-    /* height: 80px; */
-    color: black;
-    /* font-weight: 700; */
-    margin-top: -15px;
-    background: var(--jaune_bg);
-    padding: 0px 10px;
-    border-radius: 6px;
-}
+
 .qrcode{
     font-size: 60px;
     font-weight: 400;
     color: black;
     /* font-weight: 700; */
     margin-top: -15px;
-    background-color: var(--jaune_bg);
+    /* background-color: var(--jaune_bg); */
     padding: 0px 10px;
     border-radius: 6px;
+    color: white;
 }

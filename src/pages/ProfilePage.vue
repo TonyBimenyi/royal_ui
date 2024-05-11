@@ -19,8 +19,8 @@
                                 <img src="../theme/images/login_bg.png" alt="">
                             </div>
                             <div class="username">
-                                <p class="welcome_txt">De</p>
-                                <p class="username_txt">Arnaud Mugisha</p>
+                                <p class="welcome_txt">Arnaud Mugisha</p>
+                                <p class="username_txt">150.00 Points</p>
                             </div>
                         </div>
                     </ion-col>
