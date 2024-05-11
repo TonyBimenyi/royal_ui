@@ -41,7 +41,7 @@
                       <ion-col size="8"> 
                         <div class="user">
                             <div class="username">
-                                <p class="welcome_txt">Your points</p>
+                                <p class="welcome_txt">Vos Points</p>
                                 <p class="username_txt">150.00</p>
                             </div>
                             
@@ -60,7 +60,7 @@
                       <ion-col size="8"> 
                         <div class="user">
                             <div class="username">
-                                <p class="welcome_txt">Your Level</p>
+                                <p class="welcome_txt">Votre Niveau</p>
                                 <p class="username_txt">GOLD</p>
                             </div>
                             
