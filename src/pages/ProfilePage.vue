@@ -20,8 +20,9 @@
                             </div>
                             <div class="username">
                                 <p class="welcome_txt">Arnaud Mugisha</p>
-                                <p class="username_txt">150.00 Points</p>
+                                <p class="username_txt">ID: 1502054</p>
                             </div>
+                            
                         </div>
                     </ion-col>
                       <ion-col size="3"> 
@@ -34,6 +35,45 @@
                     </ion-col>
                     </ion-row>
                   </ion-grid>
+
+                  <ion-grid class="grr1">
+                    <ion-row class="ion-justify-content-between">
+                      <ion-col size="8"> 
+                        <div class="user">
+                            <div class="username">
+                                <p class="welcome_txt">Your points</p>
+                                <p class="username_txt">150.00</p>
+                            </div>
+                            
+                        </div>
+                    </ion-col>
+                      <ion-col size="3"> 
+                        <div class="user">
+                           
+                        </div>    
+                    </ion-col>
+                    </ion-row>
+                  </ion-grid>
+
+                  <ion-grid class="grr2">
+                    <ion-row class="ion-justify-content-between">
+                      <ion-col size="8"> 
+                        <div class="user">
+                            <div class="username">
+                                <p class="welcome_txt">Your Level</p>
+                                <p class="username_txt">GOLD</p>
+                            </div>
+                            
+                        </div>
+                    </ion-col>
+                      <ion-col size="3"> 
+                        <div class="user">
+                           
+                        </div>    
+                    </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                  
               </ion-card>
         </ion-content>
 </template>

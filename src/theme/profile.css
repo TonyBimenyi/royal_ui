@@ -56,6 +56,25 @@ ion-content::part(background) {
 .grr{
     margin-top: 5px;
 }
+.grr1{
+    margin-top: -70px;
+}
+.grr2{
+    margin-top: -30px;
+}
+.grr1 .username .username_txt, .grr2 .username .username_txt{
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    /* font-weight: 700; */
+    margin-top: -12px;
+}
+.grr1 .username .welcome_txt, .grr2 .username .welcome_txt{
+    font-size: 13px;
+    font-weight: 300;
+    color: white;
+    /* font-weight: 700; */
+}
 .welcome_txt{
     font-size: 15px;
     margin-top: 18px;
