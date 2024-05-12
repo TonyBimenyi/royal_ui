@@ -12,13 +12,13 @@
                     <div class="form-input">
 
                         <ion-item class="username">
-                            <ion-input class="input" label="Email" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+                            <ion-input class="input" label="Email" label-placement="floating" fill="outline" placeholder="Enter text" v-model="form.username"></ion-input>
                         </ion-item><br>
                     </div>
         
                     <div class="form-input">
                         <ion-item>
-                            <ion-input type="password" class="input" label="Password" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+                            <ion-input type="password" class="input" label="Password" label-placement="floating" fill="outline" placeholder="Enter text" v-model="form.username"></ion-input>
                         </ion-item>
 
                         <ion-button class="login_btn" expand="block">Login</ion-button>
