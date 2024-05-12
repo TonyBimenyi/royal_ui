@@ -75,6 +75,91 @@
                   </ion-grid>
                   
               </ion-card>
+
+              <h3 class="title_princi"> <span><i class="fa fa-caret-right" aria-hidden="true"></i></span>Special Promotions</h3>
+        
+        <ion-list class="list_pro">
+            <ion-item>
+                <ion-badge class="button_order" slot="end">Order</ion-badge>
+                <ion-label>
+                    <div class="list">
+                        <div class="img_list">
+                            <img src="../theme/images/login_bg.png" alt="">
+                        </div>
+                        <div class="promo">
+                            <p class="username_txt">Limited Time Offer</p>
+                            <p class="welcome_txt">Buy 3 Beers and get 1500 points!</p>
+                            
+                        </div>
+                    </div>
+                </ion-label>
+            </ion-item>
+
+            <ion-item>
+                <ion-badge class="button_order" slot="end">Order</ion-badge>
+                <ion-label>
+                    <div class="list">
+                        <div class="img_list">
+                            <img src="../theme/images/login_bg.png" alt="">
+                        </div>
+                        <div class="promo">
+                            <p class="username_txt">Limited Time Offer</p>
+                            <p class="welcome_txt">Buy 3 Beers and get 1500 points!</p>
+                            
+                        </div>
+                    </div>
+                </ion-label>
+            </ion-item>
+
+            <ion-item>
+                <ion-badge class="button_order" slot="end">Order</ion-badge>
+                <ion-label>
+                    <div class="list">
+                        <div class="img_list">
+                            <img src="../theme/images/login_bg.png" alt="">
+                        </div>
+                        <div class="promo">
+                            <p class="username_txt">Limited Time Offer</p>
+                            <p class="welcome_txt">Buy 3 Beers and get 1500 points!</p>
+                            
+                        </div>
+                    </div>
+                </ion-label>
+            </ion-item>
+
+            <ion-item>
+                <ion-badge class="button_order" slot="end">Order</ion-badge>
+                <ion-label>
+                    <div class="list">
+                        <div class="img_list">
+                            <img src="../theme/images/login_bg.png" alt="">
+                        </div>
+                        <div class="promo">
+                            <p class="username_txt">Limited Time Offer</p>
+                            <p class="welcome_txt">Buy 3 Beers and get 1500 points!</p>
+                            
+                        </div>
+                    </div>
+                </ion-label>
+            </ion-item>
+
+            <ion-item>
+                <ion-badge class="button_order" slot="end">Order</ion-badge>
+                <ion-label>
+                    <div class="list">
+                        <div class="img_list">
+                            <img src="../theme/images/login_bg.png" alt="">
+                        </div>
+                        <div class="promo">
+                            <p class="username_txt">Limited Time Offer</p>
+                            <p class="welcome_txt">Buy 3 Beers and get 1500 points!</p>
+                            
+                        </div>
+                    </div>
+                </ion-label>
+            </ion-item>
+            
+        </ion-list>
         </ion-content>
 </template>
 <script >
