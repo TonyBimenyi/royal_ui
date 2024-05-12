@@ -149,6 +149,14 @@ ion-list{
     text-align: end;
     /* margin-top: 50px; */
 }
+.logo_{
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    padding: 10px 10px;
+}
 .in_points{
     color: black;
     text-align: end;

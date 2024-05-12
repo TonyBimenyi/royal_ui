@@ -22,7 +22,7 @@
           </ion-grid>
 
               <ion-card class="card">
-                
+                <img  class="logo_" src="../theme/images/logo2.png" alt="">
                 <div class="triangle"></div>
                 <ion-grid class="grr">
                     <ion-row class="ion-justify-content-between">
