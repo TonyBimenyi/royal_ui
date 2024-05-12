@@ -6,6 +6,7 @@ import HomePage from "../pages/HomePage.vue"
 import ReceivePoints from "../pages/ReceivePoints.vue"
 import SendPoints from "../pages/SendPointsPage.vue"
 import ProfilePage from "../pages/ProfilePage.vue"
+import BarsPage from "../pages/BarsPage.vue"
 
 const routes = [
   {
@@ -19,6 +20,7 @@ const routes = [
   {path:'/receive',component:ReceivePoints},
   {path:'/send',component:SendPoints},
   {path:'/profile',component:ProfilePage},
+  {path:'/bars',component:BarsPage},
  
 ]
 
