@@ -2,6 +2,11 @@
     --background:var(--jaune_bg);
     
 }
+.profile_content ion-item{
+    --background: transparent; /* Set item background color to white */
+    border-style: none;
+  }
+
 
 ion-content::part(background) {
     --background:var(--jaune_bg);
@@ -99,4 +104,75 @@ ion-content::part(background) {
     padding: 0px 10px;
     border-radius: 6px;
     color: white;
+    text-align: right;
+}
+.logout_icon i{
+    color: white;
+    font-size: 15px;
+    margin: 0px 6px;
+    background-color: var(--vert_bg);
+    padding: 8px;
+    border-radius: 5px;
+    
+}
+
+ion-list{
+    --background:red;
+}
+.list_pro{
+    background-color:transparent;
+     
+}
+.list {
+    display: flex;
+    background-color:transparent;
+   
+}
+.list img{
+    height: 45px;
+    border-radius: 4px;
+    border: 5px solid var(--vert_bg);
+}
+.list .username{
+    margin-top: 0px;
+    margin-left: 10px;
+}
+.promo p{
+    font-size: 13px;
+    margin-top: 3px;
+    margin-left: 5px;
+    color: black;
+
+}
+.de_points{
+    color: red;
+    text-align: end;
+    /* margin-top: 50px; */
+}
+.in_points{
+    color: black;
+    text-align: end;
+    /* margin-top: 50px; */
+}
+.promo .username_txt{
+    font-weight: 700;
+}
+.asd{
+    font-weight: 300;
+}
+.button_order{
+    --background:var(--vert_bg);
+    color: white;
+    --padding-start:10px;
+    --padding-end:10px;
+    --padding-top:10px;
+    --padding-bottom:10px;
+    font-weight: 400;
+}
+.title_princi{
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 20px;
+    color: black;
+    margin-top: 30px;
 }

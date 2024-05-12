@@ -10,7 +10,7 @@ import ProfilePage from "../pages/ProfilePage.vue"
 const routes = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/login'
   },
   {path:'/memories', component:MemoriesPage},
   {path:'/login', component:LoginPage},

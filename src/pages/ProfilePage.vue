@@ -8,6 +8,19 @@
                 
               </div> -->
 
+          <ion-grid class="grr">
+            <ion-row class="ion-justify-content-between">
+              <ion-col size="6"> 
+                
+            </ion-col>
+              <ion-col size="6" class="ion-text-end"> 
+                 <div class="logout_icon">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                 </div>
+            </ion-col>
+            </ion-row>
+          </ion-grid>
+
               <ion-card class="card">
                 
                 <div class="triangle"></div>
@@ -25,7 +38,7 @@
                             
                         </div>
                     </ion-col>
-                      <ion-col size="3"> 
+                      <ion-col size="2" > 
                         <div class="user">
                             <div class="qr">
                                 <p class="qrcode"><i class="fa fa-qrcode" aria-hidden="true"></i></p>
@@ -76,89 +89,146 @@
                   
               </ion-card>
 
-              <h3 class="title_princi"> <span><i class="fa fa-caret-right" aria-hidden="true"></i></span>Special Promotions</h3>
+              <h3 class="title_princi"> <span><i class="fa fa-caret-right" aria-hidden="true"></i></span>Activités Recentes</h3>
         
         <ion-list class="list_pro">
             <ion-item>
-                <ion-badge class="button_order" slot="end">Order</ion-badge>
-                <ion-label>
-                    <div class="list">
-                        <div class="img_list">
-                            <img src="../theme/images/login_bg.png" alt="">
-                        </div>
-                        <div class="promo">
-                            <p class="username_txt">Limited Time Offer</p>
-                            <p class="welcome_txt">Buy 3 Beers and get 1500 points!</p>
-                            
-                        </div>
+              <ion-grid class="grr">
+                <ion-row class="ion-justify-content-between">
+                  <ion-col size="8"> 
+                    <ion-label>
+                      <div class="list">
+                          <div class="img_list">
+                              <img src="../theme/images/login_bg.png" alt="">
+                          </div>
+                          <div class="promo">
+                              <p class="username_txt">@Yvan238394</p>
+                              <p class="asd">Recu , Ajourd'hui</p>
+                              
+                          </div>
+                      </div>
+                  </ion-label>
+                </ion-col>
+                  <ion-col size="3"> 
+                    <div class="point">
+                       <p class="de_points">-5Pts</p>
                     </div>
-                </ion-label>
+                </ion-col>
+                </ion-row>
+              </ion-grid>
+              
+                
             </ion-item>
 
             <ion-item>
-                <ion-badge class="button_order" slot="end">Order</ion-badge>
-                <ion-label>
-                    <div class="list">
-                        <div class="img_list">
-                            <img src="../theme/images/login_bg.png" alt="">
-                        </div>
-                        <div class="promo">
-                            <p class="username_txt">Limited Time Offer</p>
-                            <p class="welcome_txt">Buy 3 Beers and get 1500 points!</p>
-                            
-                        </div>
+              <ion-grid class="grr">
+                <ion-row class="ion-justify-content-between">
+                  <ion-col size="8"> 
+                    <ion-label>
+                      <div class="list">
+                          <div class="img_list">
+                              <img src="../theme/images/login_bg.png" alt="">
+                          </div>
+                          <div class="promo">
+                              <p class="username_txt">@Yvan238394</p>
+                              <p class="asd">Recu , Ajourd'hui</p>
+                              
+                          </div>
+                      </div>
+                  </ion-label>
+                </ion-col>
+                  <ion-col size="3"> 
+                    <div class="point">
+                       <p class="de_points">-5Pts</p>
                     </div>
-                </ion-label>
+                </ion-col>
+                </ion-row>
+              </ion-grid>
+              
+                
+            </ion-item>
+            <ion-item>
+              <ion-grid class="grr">
+                <ion-row class="ion-justify-content-between">
+                  <ion-col size="8"> 
+                    <ion-label>
+                      <div class="list">
+                          <div class="img_list">
+                              <img src="../theme/images/login_bg.png" alt="">
+                          </div>
+                          <div class="promo">
+                              <p class="username_txt">@Yvan238394</p>
+                              <p class="asd">Recu , Ajourd'hui</p>
+                              
+                          </div>
+                      </div>
+                  </ion-label>
+                </ion-col>
+                  <ion-col size="3"> 
+                    <div class="point">
+                       <p class="de_points">-5Pts</p>
+                    </div>
+                </ion-col>
+                </ion-row>
+              </ion-grid>
+              
+                
+            </ion-item>
+            <ion-item>
+              <ion-grid class="grr">
+                <ion-row class="ion-justify-content-between">
+                  <ion-col size="8"> 
+                    <ion-label>
+                      <div class="list">
+                          <div class="img_list">
+                              <img src="../theme/images/login_bg.png" alt="">
+                          </div>
+                          <div class="promo">
+                              <p class="username_txt">@Yvan238394</p>
+                              <p class="asd">Recu , Ajourd'hui</p>
+                              
+                          </div>
+                      </div>
+                  </ion-label>
+                </ion-col>
+                  <ion-col size="3"> 
+                    <div class="point">
+                       <p class="de_points">-5Pts</p>
+                    </div>
+                </ion-col>
+                </ion-row>
+              </ion-grid>
+              
+                
+            </ion-item>
+            <ion-item>
+              <ion-grid class="grr">
+                <ion-row class="ion-justify-content-between">
+                  <ion-col size="8"> 
+                    <ion-label>
+                      <div class="list">
+                          <div class="img_list">
+                              <img src="../theme/images/login_bg.png" alt="">
+                          </div>
+                          <div class="promo">
+                              <p class="username_txt">@Yvan238394</p>
+                              <p class="asd">Recu , Ajourd'hui</p>
+                              
+                          </div>
+                      </div>
+                  </ion-label>
+                </ion-col>
+                  <ion-col size="3"> 
+                    <div class="point">
+                       <p class="in_points">+10Pts</p>
+                    </div>
+                </ion-col>
+                </ion-row>
+              </ion-grid>
+              
+                
             </ion-item>
 
-            <ion-item>
-                <ion-badge class="button_order" slot="end">Order</ion-badge>
-                <ion-label>
-                    <div class="list">
-                        <div class="img_list">
-                            <img src="../theme/images/login_bg.png" alt="">
-                        </div>
-                        <div class="promo">
-                            <p class="username_txt">Limited Time Offer</p>
-                            <p class="welcome_txt">Buy 3 Beers and get 1500 points!</p>
-                            
-                        </div>
-                    </div>
-                </ion-label>
-            </ion-item>
-
-            <ion-item>
-                <ion-badge class="button_order" slot="end">Order</ion-badge>
-                <ion-label>
-                    <div class="list">
-                        <div class="img_list">
-                            <img src="../theme/images/login_bg.png" alt="">
-                        </div>
-                        <div class="promo">
-                            <p class="username_txt">Limited Time Offer</p>
-                            <p class="welcome_txt">Buy 3 Beers and get 1500 points!</p>
-                            
-                        </div>
-                    </div>
-                </ion-label>
-            </ion-item>
-
-            <ion-item>
-                <ion-badge class="button_order" slot="end">Order</ion-badge>
-                <ion-label>
-                    <div class="list">
-                        <div class="img_list">
-                            <img src="../theme/images/login_bg.png" alt="">
-                        </div>
-                        <div class="promo">
-                            <p class="username_txt">Limited Time Offer</p>
-                            <p class="welcome_txt">Buy 3 Beers and get 1500 points!</p>
-                            
-                        </div>
-                    </div>
-                </ion-label>
-            </ion-item>
-            
         </ion-list>
         </ion-content>
 </template>
