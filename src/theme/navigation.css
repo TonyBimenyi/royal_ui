@@ -1,0 +1,20 @@
+.menu {
+    --background:var(--jaune_bg);
+    --border:none;
+    /* box-shadow: 0px 0px 9px 1px; */
+}
+
+  ion-tabs::part(scroll) {
+  
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
+  }
+.menu ion-label{
+    font-size: 10px;
+}
+.menu i{
+    font-size: 20px;
+}
+.active{
+    color: var(--rouge_bg);
+}
