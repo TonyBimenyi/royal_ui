@@ -8,5 +8,81 @@
     width: 40px;
     height: 40px;
     text-align: center;
+    border: 1px solid black;
     font-size: 20px;
+    border-radius: 5px;
+    color: black;
+    background-color: transparent;
+  }
+  .otp_content{
+    --background:var(--jaune_bg);
+    
+}
+.tootbar{
+    --background:transparent;
+    color: black;
+}
+.otp_content ion-item{
+    --background: transparent; /* Set item background color to white */
+    border-style: none;
+  }
+  .tootbar i{
+    color: black;
+}
+
+
+
+ion-content::part(background) {
+    --background:var(--jaune_bg);
+  }
+  ion-content::part(scroll) {
+  
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
+  }
+
+  .img_ {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    height: 280px; /* Set height of container */
+  }
+
+  .img_ img {
+    max-width: 100%; /* Ensure image doesn't exceed container width */
+    max-height: 100%; /* Ensure image doesn't exceed container height */
+  }
+.txt_otp p,.resend_otp p{
+    color: black;
+    text-align: center;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+.resend_otp p{
+    font-size: 10px;
+}
+.txt_otp span,.resend_otp span{
+    font-weight: 600;
+}
+.done_btn {
+    --background: var(--vert_bg);
+    --background-hover: #005e2f;
+    --background-activated: #008a45;
+    --background-focused: #008542;
+
+    --color: white;
+
+    --border-radius: 05px;
+    /* --border-color: #000; */
+    /* --border-style: solid; */
+    /* --border-width: 1px; */
+
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+
+    --ripple-color: deeppink;
+
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+    margin-left:20px;
+    margin-right:20px;
   }

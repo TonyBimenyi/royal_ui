@@ -7,6 +7,7 @@ import ReceivePoints from "../pages/ReceivePoints.vue"
 import SendPoints from "../pages/SendPointsPage.vue"
 import ProfilePage from "../pages/ProfilePage.vue"
 import BarsPage from "../pages/BarsPage.vue"
+import OTPPage from "../pages/OTPPage.vue"
 
 const routes = [
   {
@@ -21,6 +22,7 @@ const routes = [
   {path:'/send',component:SendPoints},
   {path:'/profile',component:ProfilePage},
   {path:'/bars',component:BarsPage},
+  {path:'/verification',component:OTPPage},
  
 ]
 
