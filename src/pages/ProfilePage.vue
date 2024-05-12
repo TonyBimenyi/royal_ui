@@ -260,6 +260,6 @@ export default {
     },
 }
 </script>
-<style src="../theme/profile.css" scoped>
+<style src="../theme/bars.css" scoped>
 
 </style>

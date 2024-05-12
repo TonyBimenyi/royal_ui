@@ -1,0 +1,62 @@
+.tootbar{
+    --background:transparent;
+    color: black;
+}
+ion-content::part(background) {
+    --background:var(--jaune_bg);
+  }
+  ion-content::part(scroll) {
+  
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
+  }
+
+.tootbar i{
+    color: black;
+}
+
+ 
+.card {
+    position: relative;
+    height:230px;
+    background: linear-gradient(45deg, #FFD700, #8B4513);
+
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .triangle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: 200px solid transparent;
+    border-bottom: 100px solid #ffffff;
+  }
+  .user{
+    display: flex;
+}
+.logo_{
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    padding: 10px 10px;
+}
+.bar_name h1{
+    text-align: center;
+    margin-top: 72px;
+    color: white;
+    font-weight:600;
+    font-size: 35px;
+}
+.address p{
+    text-align: center;
+    color: white;
+    font-weight:300;
+    margin-top: -10px;
+    font-size: 13px;
+}

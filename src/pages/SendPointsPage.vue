@@ -5,7 +5,7 @@
               <ion-button default-href="/home"><i class="fa fa-arrow-left" aria-hidden="true"></i></ion-button>
             </ion-buttons>
             <ion-title class="toolbar_title">Envoyer des Points</ion-title>
-          </ion-toolbar>
+        </ion-toolbar>
 
           <ion-grid class="grr">
             <ion-row class="ion-justify-content-between">
