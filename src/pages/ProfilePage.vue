@@ -1,4 +1,5 @@
-<template>  
+<template> 
+  <ion-page> 
         <ion-content class="profile_content">
             <!-- <div class="card">
                 <div class="triangle">
@@ -231,6 +232,7 @@
 
         </ion-list>
         </ion-content>
+      </ion-page>
 </template>
 <script >
 import {IonTitle,IonButtons,IonToolbar,IonBackButton, IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton,IonLabel,IonBadge,IonGrid,IonRow,IonCol,IonCardContent} from "@ionic/vue"

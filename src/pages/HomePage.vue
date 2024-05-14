@@ -20,7 +20,7 @@
                     <ion-grid>
                         <ion-row>
                         <ion-col class="col_txt">
-                            <p>Your Points</p>
+                            <p>Vos Points</p>
                             <h3>{{ hiddenNumber }}</h3>   <p @click="toggleDisplay"><i class="fa fa-eye" aria-hidden="true"></i></p>
                         </ion-col>
                         <ion-col></ion-col>
@@ -32,15 +32,17 @@
                         <ion-row class="ion-justify-content-between">
                             
                         <ion-col  class="point_txt">
-                            <router-link to="/send">
+                            <router-link class="link" to="/send">
                             <i class="fa fa-outdent" aria-hidden="true"></i>
                                 </router-link>
                             <p>Send Points</p>
                         </ion-col>
                  
                         <ion-col class="point_txt">
+                          <router-link class="link" to="/receive">
                             <i class="fa fa-indent" aria-hidden="true"></i>
                             <p>Receive Points</p>
+                          </router-link>
                         </ion-col>
                         <ion-col class="point_txt">
                             <i class="fa fa-gift" aria-hidden="true"></i>
@@ -58,9 +60,9 @@
 
         <div class="slides" :style="{transform: `translateX(-${currentIndex * 100}%)`}">
             <!-- Loop through images -->
-            <div class="slide" v-for="(image, index) in images" :key="index">
+            <div class="slide" v-for="(ad, index) in ads" :key="index">
               <div class="card">
-                <img :src="image.src" :alt="image.alt">
+                <img :src="ad.img" :alt="ad.imh">
               </div>
             </div>
           </div>
@@ -68,7 +70,7 @@
         <div class="navigation">
             <span
               class="navigation-point"
-              v-for="(image, index) in images"
+              v-for="(ad, index) in ads"
               :key="index"
               :class="{ 'active': currentIndex === index }"
               @click="goToSlide(index)"
@@ -100,9 +102,13 @@
             <ion-col size="10" class="explor">
                 <p>Explorez les bars où vous pouvez obtenir des promotions.</p>
             </ion-col>
-    
-            <ion-col class="right"><i class="fa fa-arrow-right" aria-hidden="true"></i></ion-col>
-
+            
+            <ion-col class="right">
+              <router-link to="/send">
+               <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              </router-link>
+              </ion-col>
+           
             </ion-row>
         </ion-grid>
     </ion-content>
@@ -139,19 +145,10 @@ export default {
         promos:[],
         ads:[],
         currentIndex: 0,
-        number: 1234567890,
+        number: this.$store.getters.user.points,
       displayComplete: false,
-        images: [
-          { src: myImage1, title: 'Slide 1 Title', content: 'Slide 1 Content' },
-          { src: myImage2, alt: 'Slide 2', title: 'Slide 2 Title', content: 'Slide 2 Content' },
-          { src: myImage3, alt: 'Slide 2', title: 'Slide 3 Title', content: 'Slide 2 Content' },
-          { src: myImage4, alt: 'Slide 2', title: 'Slide 4 Title', content: 'Slide 2 Content' },
-          // Add more images as needed
-        ]
+        
         }
-      },
-      mounted() {
-        this.startSlider();
       },
       methods: {
         getAds(){
@@ -190,7 +187,7 @@ export default {
     },
         startSlider() {
           setInterval(() => {
-            this.currentIndex = (this.currentIndex + 1) % this.images.length;
+            this.currentIndex = (this.currentIndex + 1) % this.ads.length;
           }, 3000); // Change slide every 3 seconds (adjust as needed)
         },
         goToSlide(index) {
@@ -212,6 +209,7 @@ export default {
     this.setGreeting();
     this.getPromos();
     this.getAds();
+    this.startSlider();
   },
   computed: {
     hiddenNumber() {

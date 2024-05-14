@@ -1,4 +1,5 @@
 <template>
+  <ion-page>
     <ion-content class="receive_content">
         <ion-toolbar class="tootbar">
             <ion-buttons slot="start">
@@ -12,16 +13,18 @@
           </div>
 
           <ion-card class="cardw">
-            <qrcode-vue class="qrcode" :value="'dshjjhsdf637'" :size="180" level="H" margin="0" background="black" foreground="white"/>
+            <div class="qrcode-container">
+              <qrcode-vue class="qrcode" :value="$store.getters.user.code" :size="180" level="L" margin="1" background="#3B713E" foreground="#FFFCEF"/>
+            </div>
             <div class="img_log">
-             <img class="overlay-image" src="../theme/images/royale_logo.png" alt="Overlay Image">
+             <img class="overlay-image" src="../theme/images/logo2.png" alt="Overlay Image">
             </div>
           </ion-card>
           <div class="text-with-copy">
-            <div class="text"><span>Your Code:</span> {{ text }}</div>
+            <div class="text"><span>Votre Code:</span> {{this.$store.getters.user.code}}</div>
             <button class="copy-button" @click="copyText">
-              <p v-if="!copied"><i  class="fa fa-clone"></i> Copy</p> <!-- Display copy icon if not copied -->
-              <p v-else><i  class="fa fa-check"></i> Copied</p> <!-- Display checkmark icon if copied -->
+              <p v-if="!copied"><i  class="fa fa-clone"></i> Copier</p> <!-- Display copy icon if not copied -->
+              <p v-else><i  class="fa fa-check"></i> Copié</p> <!-- Display checkmark icon if copied -->
             </button>
           </div>
           <div class="address">
@@ -44,6 +47,7 @@
             </ul>
           </div>
     </ion-content>
+  </ion-page>
 </template>
 <script>
 import {IonTitle,IonButtons,IonToolbar,IonBackButton, IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton,IonLabel,IonBadge,IonGrid,IonRow,IonCol,IonCardContent} from "@ionic/vue"
@@ -73,9 +77,9 @@ export default {
     },
     data() {
       return {
-        value: 'https://example.com',
+        value: 'asdsadasdasd',
         size: 300,
-        text: "dshjjhsdf637", // Set default text here
+        text: "eruisad", // Set default text here
         copied: false // Flag to track whether text has been copied
       }
     },

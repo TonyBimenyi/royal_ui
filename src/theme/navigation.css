@@ -18,3 +18,17 @@
 .active{
     color: var(--rouge_bg);
 }
+.link{
+  text-decoration: none;
+  color: grey;
+}
+.rew{
+  background-color: var(--vert_bg);
+  padding: 20px;
+  position: absolute;
+  border-radius: 100px;
+  color: white;
+}
+.txt_l{
+  color: white;
+}

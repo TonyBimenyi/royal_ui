@@ -4,31 +4,42 @@
         <!-- Home Tab -->
         <ion-tab-bar class="menu" slot="bottom">
   
-          <ion-tab-button href="/home" :class="{ 'active': $route.path === '/home' }"  tab="home">
-           <i class="fa fa-home" aria-hidden="true"></i>
-            <ion-label  :class="{ 'active': $route.path === '/home' }">Acceuil</ion-label>
+          <ion-tab-button :class="{ 'active': $route.path === '/home' }"  tab="home">
+            <router-link  class="link"  to="/home" >
+           <i :class="{ 'active': $route.path === '/home'  } " class="fa fa-home" aria-hidden="true"></i><br>
+            <ion-label  :class="{ 'active': $route.path === '/home'  }">Acceuil</ion-label></router-link>
           </ion-tab-button>
 
-          <ion-tab-button href="/home" :class="{ 'active': $route.path === '/bars' }" tab="home">
-            <i class="fa fa-glass" aria-hidden="true"></i>
+          <ion-tab-button  :class="{ 'active': $route.path === '/bars' }" tab="home">
+            <router-link class="link" to="/bars">
+            <i :class="{ 'active': $route.path === '/bars'  } " class="fa fa-glass" aria-hidden="true"></i><br>
              <ion-label :class="{ 'active': $route.path === '/bars' }">Bars</ion-label>
+            </router-link>
            </ion-tab-button>
 
-           <ion-tab-button :class="{ 'active': $route.path === '/rewards' }" tab="home">
-            <i class="fa fa-gift" aria-hidden="true"></i>
-             <ion-label :class="{ 'active': $route.path === '/rewards' }">Rewards</ion-label>
+           <ion-tab-button  :class="{ 'active': $route.path === '/rewards' }" tab="home">
+            <div class="rew">
+            <i class="fa fa-gift" aria-hidden="true"></i><br>
+             <ion-label class="txt_l" :class="{ 'active': $route.path === '/rewards' }">Rewards</ion-label>
+            </div>
            </ion-tab-button>
 
 
            <ion-tab-button :class="{ 'active': $route.path === '/notification' }" tab="home">
+      
             <i class="fa fa-bell" aria-hidden="true"></i>
              <ion-label :class="{ 'active': $route.path === '/notification' }">Notifications</ion-label>
+    
            </ion-tab-button>
 
+           
            <ion-tab-button :class="{ 'active': $route.path === '/profile' }" tab="home">
-            <i class="fa fa-user" aria-hidden="true"></i>
+            <router-link  class="link" to="/profile">
+            <i :class="{ 'active': $route.path === '/profile' }" class="fa fa-user" aria-hidden="true"></i><br>
              <ion-label :class="{ 'active': $route.path === '/profile' }">Profil</ion-label>
+            </router-link>
            </ion-tab-button>
+          
 
   
           <!-- Add more tab buttons for additional tabs -->

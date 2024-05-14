@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'YourFontName';
+    src:  url('../public/fonts/Code39r.ttf') format('ttf');
+    /* Add additional font properties if needed */
+  }
+  
+  /* You can define additional styles using the custom font */
+  body {
+    font-family: 'Code39r', sans-serif;
+  }
+  

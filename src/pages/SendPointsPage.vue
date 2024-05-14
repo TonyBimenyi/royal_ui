@@ -2,9 +2,11 @@
   <ion-page>
     <ion-content class="send_container" ion-padding>
         <ion-toolbar class="tootbar">
+          <router-link class="link" to="/home">
             <ion-buttons slot="start">
-              <ion-button default-href="/home"><i class="fa fa-arrow-left" aria-hidden="true"></i></ion-button>
+              <ion-back-button default-href="/home">Back</ion-back-button>
             </ion-buttons>
+          </router-link>
             <ion-title class="toolbar_title">Envoyer des Points</ion-title>
         </ion-toolbar>
 

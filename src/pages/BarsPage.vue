@@ -1,4 +1,5 @@
 <template>
+    <ion-page>
     <ion-content class="bars_content">
         <ion-toolbar class="tootbar">
             <ion-buttons>
@@ -33,6 +34,7 @@
                 </div>
           </ion-card>
     </ion-content>
+</ion-page>
 </template>
 <script >
 import {IonTitle,IonButtons,IonToolbar,IonBackButton, IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton,IonLabel,IonBadge,IonGrid,IonRow,IonCol,IonCardContent} from "@ionic/vue"

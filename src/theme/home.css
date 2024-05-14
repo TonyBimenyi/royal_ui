@@ -115,6 +115,12 @@ ion-col {
     margin-top: 0px;
     margin-left: 10px;
 }
+.link{
+  text-decoration: none;
+}
+.router-link{
+  text-decoration: none;
+}
 .promo p{
     font-size: 13px;
     margin-top: 3px;
