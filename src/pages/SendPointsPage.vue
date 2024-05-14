@@ -1,4 +1,5 @@
 <template>
+  <ion-page>
     <ion-content class="send_container" ion-padding>
         <ion-toolbar class="tootbar">
             <ion-buttons slot="start">
@@ -83,7 +84,9 @@
           </div>
           <ion-button class="done_btn" expand="block">Envoyer</ion-button>
     </ion-content>
+  </ion-page>
 </template>
+
 <script>
 import {IonTitle,IonButtons,IonToolbar,IonBackButton, IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton,IonLabel,IonBadge,IonGrid,IonRow,IonCol,IonCardContent} from "@ionic/vue"
 import QrcodeVue from 'qrcode.vue'

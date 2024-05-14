@@ -102,10 +102,14 @@ ion-col {
 .list {
     display: flex;
 }
-.list img{
-    height: 45px;
-    border-radius: 4px;
+.img_list img{
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
     border: 5px solid var(--vert_bg);
+    object-fit: cover;
+    margin-right:30px;
+    --max-width:0%;
 }
 .list .username{
     margin-top: 0px;
@@ -132,6 +136,17 @@ ion-col {
     color: black;
     margin-top: 30px;
 }
+.explor p{
+  color: black;
+  margin-top: -10px;
+  font-size: 12px;
+  text-align: left;
+  margin-left: 10px;
+}
+.right i{
+  color: black;
+  margin-top: -55px;
+}
 
 
 
@@ -157,6 +172,7 @@ ion-col {
     height: 200px;
     border-radius: 10px;
     object-fit: cover;
+   
   }
   /* Navigation points */
   .navigation {

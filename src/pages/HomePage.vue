@@ -1,4 +1,5 @@
 <template>
+    <ion-page>
     <ion-content class="home_content" >
             <ion-item>
                 <ion-badge class="button_order" slot="end"><i class="fa fa-sign-out" aria-hidden="true"></i></ion-badge>
@@ -8,8 +9,8 @@
                             <img src="../theme/images/login_bg.png" alt="">
                         </div>
                         <div class="username">
-                            <p class="welcome_txt">Welcome Back!</p>
-                            <p class="username_txt">Arnaud Mugisha</p>
+                            <p class="welcome_txt">{{greeting}}</p>
+                            <p class="username_txt">{{this.$store.getters.user.Fname}} {{this.$store.getters.user.Lname}}</p>
                         </div>
                     </div>
                 </ion-label>
@@ -20,19 +21,23 @@
                         <ion-row>
                         <ion-col class="col_txt">
                             <p>Your Points</p>
-                            <h3>0.00</h3>
+                            <h3>{{ hiddenNumber }}</h3>   <p @click="toggleDisplay"><i class="fa fa-eye" aria-hidden="true"></i></p>
                         </ion-col>
                         <ion-col></ion-col>
                         <ion-col class="qr_code"><i class="fa fa-qrcode" aria-hidden="true"></i></ion-col>
 
                         </ion-row>
                     </ion-grid>
-                    <ion-grid>
-                        <ion-row>
-                        <ion-col class="point_txt">
+                    <ion-grid class="ion-justify-content-between" >
+                        <ion-row class="ion-justify-content-between">
+                            
+                        <ion-col  class="point_txt">
+                            <router-link to="/send">
                             <i class="fa fa-outdent" aria-hidden="true"></i>
+                                </router-link>
                             <p>Send Points</p>
                         </ion-col>
+                 
                         <ion-col class="point_txt">
                             <i class="fa fa-indent" aria-hidden="true"></i>
                             <p>Receive Points</p>
@@ -72,101 +77,39 @@
         <h3 class="title_princi"> <span><i class="fa fa-caret-right" aria-hidden="true"></i></span>Special Promotions</h3>
         
         <ion-list class="list_pro">
-            <ion-item>
-                <ion-badge class="button_order" slot="end">Order</ion-badge>
+            <ion-item v-for="promo in promos" :key="promo.idPromo">
+                <!-- <ion-badge class="button_order" slot="end">Order</ion-badge> -->
                 <ion-label>
                     <div class="list">
                         <div class="img_list">
-                            <img src="../theme/images/login_bg.png" alt="">
+                            <img style="max-width:100%" :src="promo.img" alt="">
                         </div>
                         <div class="promo">
-                            <p class="username_txt">Limited Time Offer</p>
-                            <p class="welcome_txt">Buy 3 Beers and get 1500 points!</p>
+                            <p class="username_txt">{{promo.nameBar}}</p>
+                            <p class="welcome_txt">{{promo.description}}</p>
                             
                         </div>
                     </div>
                 </ion-label>
             </ion-item>
 
-            <ion-item>
-                <ion-badge class="button_order" slot="end">Order</ion-badge>
-                <ion-label>
-                    <div class="list">
-                        <div class="img_list">
-                            <img src="../theme/images/login_bg.png" alt="">
-                        </div>
-                        <div class="promo">
-                            <p class="username_txt">Limited Time Offer</p>
-                            <p class="welcome_txt">Buy 3 Beers and get 1500 points!</p>
-                            
-                        </div>
-                    </div>
-                </ion-label>
-            </ion-item>
-
-            <ion-item>
-                <ion-badge class="button_order" slot="end">Order</ion-badge>
-                <ion-label>
-                    <div class="list">
-                        <div class="img_list">
-                            <img src="../theme/images/login_bg.png" alt="">
-                        </div>
-                        <div class="promo">
-                            <p class="username_txt">Limited Time Offer</p>
-                            <p class="welcome_txt">Buy 3 Beers and get 1500 points!</p>
-                            
-                        </div>
-                    </div>
-                </ion-label>
-            </ion-item>
-
-            <ion-item>
-                <ion-badge class="button_order" slot="end">Order</ion-badge>
-                <ion-label>
-                    <div class="list">
-                        <div class="img_list">
-                            <img src="../theme/images/login_bg.png" alt="">
-                        </div>
-                        <div class="promo">
-                            <p class="username_txt">Limited Time Offer</p>
-                            <p class="welcome_txt">Buy 3 Beers and get 1500 points!</p>
-                            
-                        </div>
-                    </div>
-                </ion-label>
-            </ion-item>
-
-            <ion-item>
-                <ion-badge class="button_order" slot="end">Order</ion-badge>
-                <ion-label>
-                    <div class="list">
-                        <div class="img_list">
-                            <img src="../theme/images/login_bg.png" alt="">
-                        </div>
-                        <div class="promo">
-                            <p class="username_txt">Limited Time Offer</p>
-                            <p class="welcome_txt">Buy 3 Beers and get 1500 points!</p>
-                            
-                        </div>
-                    </div>
-                </ion-label>
-            </ion-item>
-            
         </ion-list>
         
         <ion-grid>
             <ion-row>
-            <ion-col class="col_txt">
-                <p>Explore the bars</p>
+            <ion-col size="10" class="explor">
+                <p>Explorez les bars où vous pouvez obtenir des promotions.</p>
             </ion-col>
-            <ion-col></ion-col>
-            <ion-col class="qr_code"><i class="fa fa-qrcode" aria-hidden="true"></i></ion-col>
+    
+            <ion-col class="right"><i class="fa fa-arrow-right" aria-hidden="true"></i></ion-col>
 
             </ion-row>
         </ion-grid>
     </ion-content>
+</ion-page>
 </template>
 <script>
+import axios from 'axios'
 import { IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton,IonLabel,IonBadge,IonGrid,IonRow,IonCol,IonCardContent} from "@ionic/vue"
 import myImage1 from '../theme/images/img1.jpg';
 import myImage2 from '../theme/images/img2.jpg';
@@ -192,7 +135,12 @@ export default {
     },
     data() {
         return{
+        greeting: '',
+        promos:[],
+        ads:[],
         currentIndex: 0,
+        number: 1234567890,
+      displayComplete: false,
         images: [
           { src: myImage1, title: 'Slide 1 Title', content: 'Slide 1 Content' },
           { src: myImage2, alt: 'Slide 2', title: 'Slide 2 Title', content: 'Slide 2 Content' },
@@ -206,6 +154,40 @@ export default {
         this.startSlider();
       },
       methods: {
+        getAds(){
+            axios
+            .get('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=getAds')
+            .then((res)=>{
+                // this.$store.state.promos = res.data
+                this.ads = res.data
+              
+            })
+            .catch((error)=>{
+                this.$toast.error(error.response.data.message)
+                console.log(error.response.data.message)
+            })
+        }, 
+        getPromos(){
+            axios
+            .get('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=getPromotions')
+            .then((res)=>{
+                // this.$store.state.promos = res.data
+                this.promos = res.data
+              
+            })
+            .catch((error)=>{
+                this.$toast.error(error.response.data.message)
+                console.log(error.response.data.message)
+            })
+        }, 
+        toggleDisplay() {
+      this.displayComplete = !this.displayComplete;
+      if (!this.displayComplete) {
+        setTimeout(() => {
+          this.displayComplete = false; // Hide the complete number after 10 seconds
+        }, 10000);
+      }
+    },
         startSlider() {
           setInterval(() => {
             this.currentIndex = (this.currentIndex + 1) % this.images.length;
@@ -213,8 +195,35 @@ export default {
         },
         goToSlide(index) {
           this.currentIndex = index;
-        }
+        },
+        setGreeting() {
+      const currentHour = new Date().getHours();
+
+      if (currentHour >= 6 && currentHour < 12) {
+        this.greeting = 'Bonjour';
+      } else if (currentHour >= 12 && currentHour < 18) {
+        this.greeting = 'Bon après-midi';
+      } else {
+        this.greeting = 'Bonsoir';
       }
+    }
+      },
+      mounted() {
+    this.setGreeting();
+    this.getPromos();
+    this.getAds();
+  },
+  computed: {
+    hiddenNumber() {
+      if (!this.displayComplete) {
+        const numberString = this.number.toString();
+        const hiddenPart = '*'.repeat(numberString.length - 1);
+        return hiddenPart + numberString.slice(-1);
+      } else {
+        return this.number;
+      }
+    }
+  },
       
 }
 </script>

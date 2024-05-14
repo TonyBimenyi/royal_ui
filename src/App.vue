@@ -36,5 +36,8 @@ export default {
         IonRouterOutlet,
         navmenu
     },
+    mounted(){
+      this.$store.commit("initializeStore")
+  }
 }
 </script>

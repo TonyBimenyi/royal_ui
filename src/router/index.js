@@ -14,21 +14,22 @@ const routes = [
     path: '/',
     redirect: '/login'
   },
-  {path:'/memories', component:MemoriesPage},
+  {path:'/memories',name:'memories', component:MemoriesPage},
   {path:'/login', component:LoginPage},
-  {path:'/register', component:RegisterPage},
-  {path:'/home', component:HomePage},
+  {path:'/register',name:'register', component:RegisterPage},
+  {path:'/home', name:'home',component:HomePage},
   {path:'/receive',component:ReceivePoints},
-  {path:'/send',component:SendPoints},
+  {path:'/send',name:'send',component:SendPoints},
   {path:'/profile',component:ProfilePage},
   {path:'/bars',component:BarsPage},
-  {path:'/verification',component:OTPPage},
+  {path:'/verification',name:'verification',component:OTPPage},
  
 ]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes
+  
+  routes,
 })
 
 export default router
