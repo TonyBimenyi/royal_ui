@@ -106,6 +106,9 @@ ion-content::part(background) {
     color: white;
     text-align: right;
 }
+.qrcode i{
+    font-size: 40px;
+}
 .logout_icon i{
     color: white;
     font-size: 15px;
@@ -129,12 +132,13 @@ ion-list{
    
 }
 .list img{
-    height: 45px;
-    border-radius: 4px;
+    height: 55px;
+    width: 55px;
+    border-radius: 100px;
     border: 5px solid var(--vert_bg);
 }
 .list .username{
-    margin-top: 0px;
+    margin-top: 05px;
     margin-left: 10px;
 }
 .promo p{
@@ -143,7 +147,7 @@ ion-list{
     margin-left: 5px;
     color: black;
 
-}
+}               
 .de_points{
     color: red;
     text-align: end;
@@ -164,6 +168,7 @@ ion-list{
 }
 .promo .username_txt{
     font-weight: 700;
+    margin-top: 5px;
 }
 .asd{
     font-weight: 300;

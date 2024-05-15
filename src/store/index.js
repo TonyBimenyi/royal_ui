@@ -3,6 +3,7 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
+    url:'https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=',
     formData: {
       // Initialize your form data here
       Fname: '',

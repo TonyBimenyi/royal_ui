@@ -3,40 +3,30 @@
     <ion-content class="bars_content">
         <ion-toolbar class="tootbar">
             <ion-buttons>
-              <ion-button default-href="/home"><i class="fa fa-arrow-left" aria-hidden="true"></i></ion-button>
+                <ion-back-button default-href="/home">Back</ion-back-button>
             </ion-buttons>
-            <ion-title class="toolbar_title">Envoyer des Points</ion-title>
+            <ion-title class="toolbar_title">Bars en Partenariat</ion-title>
         </ion-toolbar>
 
-        <ion-card class="card">
+        <ion-card class="card" v-for="bar in bars" :key="bar.idBar">
             <img  class="logo_" src="../theme/images/logo2.png" alt="">
             <div class="triangle"></div>
                 <div class="texts">
                     <div class="bar_name">
-                        <h1>Zanzi Bar</h1>
+                        <h1>{{bar.nameBar}}</h1>
                     </div>
                     <div class="address">
-                        <p>Quartier Asiatique, Avenue, No2</p>
+                        <p>{{ bar.communeBar }}, {{bar.zoneBar}}, {{bar.quartierBar}}, {{bar.avenuBar}} </p>
                     </div>
                 </div>
           </ion-card>
 
-          <ion-card class="card">
-            <img  class="logo_" src="../theme/images/logo2.png" alt="">
-            <div class="triangle"></div>
-                <div class="texts">
-                    <div class="bar_name">
-                        <h1>Arena Bar</h1>
-                    </div>
-                    <div class="address">
-                        <p>Quartier Rohero, Avenue de la RDC, No6</p>
-                    </div>
-                </div>
-          </ion-card>
+         
     </ion-content>
 </ion-page>
 </template>
 <script >
+import axios from 'axios'
 import {IonTitle,IonButtons,IonToolbar,IonBackButton, IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton,IonLabel,IonBadge,IonGrid,IonRow,IonCol,IonCardContent} from "@ionic/vue"
 import QrcodeVue from 'qrcode.vue'
 export default {
@@ -62,6 +52,33 @@ export default {
         IonButtons,
         QrcodeVue
     },
+    data() {
+        return{
+        bars:[],
+            
+        }
+      },
+
+    methods:{
+         getBar(){
+            axios
+            .get('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=getBar')
+            .then((res)=>{
+                // this.$store.state.promos = res.data
+                this.bars = res.data
+              
+            })
+            .catch((error)=>{
+                this.$toast.error(error.response.data.message)
+                console.log(error.response.data.message)
+            })
+        }, 
+    },
+ 
+    mounted() {
+    this.getBar();
+
+  },
 }
 </script>
 <style src="../theme/bars.css" scoped>

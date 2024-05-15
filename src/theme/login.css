@@ -1,9 +1,10 @@
 ion-content{
-  background-image: url('../theme/images/login_bg.png');
+  background-image: url('../theme/images/login_bg.JPG');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
+  margin-top: 99px;
+  position: absolute;
 
 }
 .login_content{
@@ -87,12 +88,14 @@ ion-content{
     }
   }
 .form_bg img{
-    width: 70px; /* Adjust size as needed */
+    width: 50px;
     height: auto;
     position: absolute;
-    top: -30px;
+    top: 0px;
     left: 50%;
+    margin-bottom: -10px;
     transform: translateX(-50%);
+    /* display: none;
     /* display: none; */
 }
 
@@ -103,7 +106,7 @@ ion-content{
     text-align: center;
     color: black;
     font-weight: 700;
-    margin-top: 50px;
+    margin-top: 55px;
     font-size: 17px;
 }
 .content p{
@@ -151,7 +154,7 @@ ion-input {
     border-radius: 55px !important; 
     color: white;
     font-size: 15px;
-    --background: #3B713E;
+    --background: var(--vert_bg);
 }
 
 

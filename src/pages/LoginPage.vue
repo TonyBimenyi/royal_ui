@@ -30,11 +30,11 @@
           </div>
           <form action="">
         <div class="form_bg">
-            <img src="../theme/images/royale_logo.png" alt="">
+            <img src="../theme/images/logo2.png" alt="">
             <div class="content">
                 <div class="heading ion-padding" >
-                    <h3>Welcome Back!</h3>
-                    <p>Start earning points with every single sip of <strong>Amstel Royale !</strong> </p>
+                    <h3>Bienvenue!</h3>
+                    <p>Connectez-vous et gagner des points avec<strong> Amstel Royale !</strong> </p>
                 </div>
                 
                 <div class="login-form ">
@@ -50,8 +50,8 @@
                             <ion-input type="password" class="input" label="Mot de Passe" label-placement="floating" fill="outline" placeholder="Enter text" required v-model="form.password"></ion-input>
                         </ion-item>
 
-                        <ion-button @click="submit()" class="login_btn" expand="block" :disabled="loading">Login</ion-button>
-                        <p>You don't have account? <a href="/register"><span>Register Here</span></a> .</p>
+                        <ion-button @click="submit()" class="login_btn" expand="block" :disabled="loading">Se Connecter</ion-button>
+                        <p>Vous n'avez pas de compte? <a href="/register"><span>Enregistrez-vous ici.</span></a> </p>
                     </div>
                 </div>
             </div>

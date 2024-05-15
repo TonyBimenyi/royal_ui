@@ -39,6 +39,13 @@ const app = createApp(App)
   .use(IonicVue)
   .use(router)
   .use(store);
+app.mixin({
+  url(){
+    return this.$store.state.url
+  },   
+ 
+})
+
 
 // Wait for the router to be ready before mounting the app
 router.isReady().then(() => {

@@ -1,8 +1,18 @@
 <template>
   <ion-app>
-    <ion-router-outlet />
-    <navmenu>
-    </navmenu>
+    <div v-if="this.$store.getters.user" class="">
+      <navmenu>
+      </navmenu>
+      <ion-router-outlet />
+    </div>
+
+    <div class="" v-if="this.$route.path !== + '/login' || this.$route.path !== + '/register'">
+     
+    </div>
+    <div class="" v-else>
+      <p>asdj</p>
+    </div>
+  
   </ion-app>
 </template>
 
@@ -36,7 +46,7 @@ export default {
         IonRouterOutlet,
         navmenu
     },
-    mounted(){
+  mounted(){
       this.$store.commit("initializeStore")
   }
 }

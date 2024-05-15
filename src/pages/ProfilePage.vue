@@ -33,8 +33,8 @@
                                 <img src="../theme/images/login_bg.png" alt="">
                             </div>
                             <div class="username">
-                                <p class="welcome_txt">Arnaud Mugisha</p>
-                                <p class="username_txt">ID: 1502054</p>
+                                <p class="welcome_txt">{{this.$store.getters.user.Fname}} {{this.$store.getters.user.Lname}}</p>
+                                <p class="username_txt">CODE: {{this.$store.getters.user.code}}</p>
                             </div>
                             
                         </div>
@@ -56,7 +56,7 @@
                         <div class="user">
                             <div class="username">
                                 <p class="welcome_txt">Vos Points</p>
-                                <p class="username_txt">150.00</p>
+                                <p class="username_txt">{{this.$store.getters.user.points}}</p>
                             </div>
                             
                         </div>
@@ -93,18 +93,23 @@
               <h3 class="title_princi"> <span><i class="fa fa-caret-right" aria-hidden="true"></i></span>Activités Recentes</h3>
         
         <ion-list class="list_pro">
-            <ion-item>
+            <ion-item v-for="hi in hist" :key="hi.idHist">
               <ion-grid class="grr">
                 <ion-row class="ion-justify-content-between">
                   <ion-col size="8"> 
                     <ion-label>
                       <div class="list">
                           <div class="img_list">
-                              <img src="../theme/images/login_bg.png" alt="">
+                              <img :src="hi.img" alt="">
                           </div>
                           <div class="promo">
-                              <p class="username_txt">@Yvan238394</p>
-                              <p class="asd">Recu , Ajourd'hui</p>
+                            <div v-if="this.$store.getters.user.code === hi.codeSender" class="">
+                              <p class="username_txt">@De Moi A {{hi.codeSender}}</p>
+                            </div>
+                            <div v-else class="">
+                              <p class="username_txt">@De{{hi.codeSender}} A Moi</p>
+                            </div>
+                              <p class="asd">Date: {{hi.dateSent}}</p>
                               
                           </div>
                       </div>
@@ -112,7 +117,12 @@
                 </ion-col>
                   <ion-col size="3"> 
                     <div class="point">
-                       <p class="de_points">-5Pts</p>
+                      <div v-if="this.$store.getters.user.code === hi.codeSender" class="">
+                       <p class="de_points">-{{hi.sentPoints}} Pts</p>
+                       </div>
+                       <div v-else class="">
+                        <p class="in_points">+{{hi.sentPoints}} Pts</p>
+                        </div>
                     </div>
                 </ion-col>
                 </ion-row>
@@ -121,120 +131,13 @@
                 
             </ion-item>
 
-            <ion-item>
-              <ion-grid class="grr">
-                <ion-row class="ion-justify-content-between">
-                  <ion-col size="8"> 
-                    <ion-label>
-                      <div class="list">
-                          <div class="img_list">
-                              <img src="../theme/images/login_bg.png" alt="">
-                          </div>
-                          <div class="promo">
-                              <p class="username_txt">@Yvan238394</p>
-                              <p class="asd">Recu , Ajourd'hui</p>
-                              
-                          </div>
-                      </div>
-                  </ion-label>
-                </ion-col>
-                  <ion-col size="3"> 
-                    <div class="point">
-                       <p class="de_points">-5Pts</p>
-                    </div>
-                </ion-col>
-                </ion-row>
-              </ion-grid>
-              
-                
-            </ion-item>
-            <ion-item>
-              <ion-grid class="grr">
-                <ion-row class="ion-justify-content-between">
-                  <ion-col size="8"> 
-                    <ion-label>
-                      <div class="list">
-                          <div class="img_list">
-                              <img src="../theme/images/login_bg.png" alt="">
-                          </div>
-                          <div class="promo">
-                              <p class="username_txt">@Yvan238394</p>
-                              <p class="asd">Recu , Ajourd'hui</p>
-                              
-                          </div>
-                      </div>
-                  </ion-label>
-                </ion-col>
-                  <ion-col size="3"> 
-                    <div class="point">
-                       <p class="de_points">-5Pts</p>
-                    </div>
-                </ion-col>
-                </ion-row>
-              </ion-grid>
-              
-                
-            </ion-item>
-            <ion-item>
-              <ion-grid class="grr">
-                <ion-row class="ion-justify-content-between">
-                  <ion-col size="8"> 
-                    <ion-label>
-                      <div class="list">
-                          <div class="img_list">
-                              <img src="../theme/images/login_bg.png" alt="">
-                          </div>
-                          <div class="promo">
-                              <p class="username_txt">@Yvan238394</p>
-                              <p class="asd">Recu , Ajourd'hui</p>
-                              
-                          </div>
-                      </div>
-                  </ion-label>
-                </ion-col>
-                  <ion-col size="3"> 
-                    <div class="point">
-                       <p class="de_points">-5Pts</p>
-                    </div>
-                </ion-col>
-                </ion-row>
-              </ion-grid>
-              
-                
-            </ion-item>
-            <ion-item>
-              <ion-grid class="grr">
-                <ion-row class="ion-justify-content-between">
-                  <ion-col size="8"> 
-                    <ion-label>
-                      <div class="list">
-                          <div class="img_list">
-                              <img src="../theme/images/login_bg.png" alt="">
-                          </div>
-                          <div class="promo">
-                              <p class="username_txt">@Yvan238394</p>
-                              <p class="asd">Recu , Ajourd'hui</p>
-                              
-                          </div>
-                      </div>
-                  </ion-label>
-                </ion-col>
-                  <ion-col size="3"> 
-                    <div class="point">
-                       <p class="in_points">+10Pts</p>
-                    </div>
-                </ion-col>
-                </ion-row>
-              </ion-grid>
-              
-                
-            </ion-item>
-
+            
         </ion-list>
         </ion-content>
       </ion-page>
 </template>
 <script >
+import axios from 'axios'
 import {IonTitle,IonButtons,IonToolbar,IonBackButton, IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton,IonLabel,IonBadge,IonGrid,IonRow,IonCol,IonCardContent} from "@ionic/vue"
 import QrcodeVue from 'qrcode.vue'
 export default {
@@ -260,6 +163,33 @@ export default {
         IonButtons,
         QrcodeVue
     },
+    data() {
+        return{
+        dat:{
+          code:this.$store.getters.user.code,
+        },
+        hist:[],
+
+        }
+      },
+      methods:{
+        sendData(){
+            axios.post('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=getPointHistory ', this.dat)
+            .then((res)=>{
+                // this.$store.state.promos = res.data
+                this.hist = res.data
+              
+            })
+            .catch((error)=>{
+                this.$toast.error(error.response.data.message)
+                console.log(error.response.data.message)
+            })
+        }
+    },
+    mounted() {
+    this.sendData();
+
+  },
 }
 </script>
 <style src="../theme/profile.css" scoped>
