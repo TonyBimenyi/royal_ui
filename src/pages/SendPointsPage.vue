@@ -15,11 +15,11 @@
               <ion-col size="8"> 
                 <div class="user">
                     <div class="img">
-                        <img src="../theme/images/login_bg.png" alt="">
+                      <i class="fa fa-user" aria-hidden="true"></i>
                     </div>
                     <div class="username">
                         <p class="welcome_txt">De</p>
-                        <p class="username_txt">Arnaud Mugisha</p>
+                        <p class="username_txt">{{this.$store.getters.user.Fname}} {{this.$store.getters.user.Lname}}</p>
                     </div>
                 </div>
             </ion-col>
@@ -27,7 +27,7 @@
                 <div class="user">
                     <div class="username">
                         <p class="welcome_txt">Points</p>
-                        <p class="username_txt">150.00</p>
+                        <p class="username_txt">{{this.$store.getters.user.points}}</p>
                     </div>
                 </div>    
             </ion-col>
@@ -45,7 +45,7 @@
               <ion-col size="8"> 
                 <div class="user">
                     <div class="img">
-                        <img src="../theme/images/login_bg.png" alt="">
+                      <i class="fa fa-user" aria-hidden="true"></i>
                     </div>
                     <div class="username">
                         <p class="welcome_txt">A</p>
@@ -54,6 +54,7 @@
                         type="email"
                         fill="solid"
                         label=""
+                        v-model="form.codeReceiver"
                         label-placement="defaut"
                         placeholder="Identifiant..."
                       ></ion-input>
@@ -72,24 +73,66 @@
 
           <div class="montant_text">
             <p>Montant A Envoyer</p>
-            <div class="a">
+            <div v-if="$store.getters.user.type === 0" class="a">
                 <!-- <p class="welcome_txt">A</p> -->
                 <ion-input  class="input_montant"
                 ref="input"
                 type="number"
                 fill="solid"
                 label=""
+                v-model="form.points"
                 label-placement="defaut"
                 placeholder="Entrez le montant des points ici..."
               ></ion-input>
             </div>
+            <div v-else-if="$store.getters.user.type !== 0" class="a">
+              <!-- <p class="welcome_txt">A</p> -->
+              <ion-input  class="input_montant"
+              ref="input"
+              type="number"
+              v-model="form.points"
+              fill="solid"
+              label-placement="defaut"
+              placeholder="Entrez le montant des points ici..."
+            ></ion-input>
+            <ion-input  class="input_montant"
+              ref="input"
+              type="number"
+              fill="solid"
+              v-model="form.qty"
+              label=""
+              label-placement="defaut"
+              placeholder="Entrez la quantite"
+            ></ion-input>
+
+            <ion-input  @change="handleFileUpload"  class="input_montant"
+              ref="input"
+              type="file" 
+              fill="solid"
+            
+              label=""
+              label-placement="defaut"
+              placeholder="E"
+            ></ion-input>
+      
           </div>
-          <ion-button class="done_btn" expand="block">Envoyer</ion-button>
-    </ion-content>
+          </div>
+          <div class=""  v-if="$store.getters.user.type === 0">
+            <router-link  to="/verification-send">
+          <ion-button  @click="goToVerif()" class="done_btn" expand="block">Envoyer</ion-button>
+       
+        </router-link>
+      </div>
+      <div class=""  v-else-if="$store.getters.user.type === 1">
+   
+      <ion-button  @click.prevent="sendPoints" class="done_btn" expand="block">Envoyer</ion-button>
+  </div>
+    </ion-content>  
   </ion-page>
 </template>
 
 <script>
+import axios from 'axios'
 import {IonTitle,IonButtons,IonToolbar,IonBackButton, IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton,IonLabel,IonBadge,IonGrid,IonRow,IonCol,IonCardContent} from "@ionic/vue"
 import QrcodeVue from 'qrcode.vue'
 export default {
@@ -117,6 +160,15 @@ export default {
     },
     data() {
       return {
+        form:{
+          codeSender:this.$store.getters.user.code,
+          codeReceiver:'',
+          points:'',
+          type:this.$store.getters.user.type,
+          invoice:null,
+          qty:'',
+
+        },
         value: 'https://example.com',
         size: 300,
         text: "dshjjhsdf637", // Set default text here
@@ -124,13 +176,55 @@ export default {
       }
     },
     methods: {
+      handleFileUpload(e){
+            this.form.invoice = e.target.files[0]
+        },
+      goToVerif(){
+        this.$store.dispatch('updateFormData', this.form)
+      },
+      async sendPoints(){
+        if (!this.form.invoice) {
+        alert('Please select a file first');
+        return;
+      }
+           const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      };
+                let data = new FormData()
+                data.append('invoice', this.form.invoice)
+                data.append('codeSender', this.form.codeSender)
+                data.append('codeReceiver', this.form.codeReceiver)
+                data.append('points', this.form.points)
+                data.append('type', this.form.type)
+                data.append('qty', this.form.qty)
+                axios.post('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=sendPoints', data, config)
+            .then((response) => {
+                this.loading = false;
+                if (response.data[0].Message === 1) {
+                this.message = response.data[0].Message;
+                alert('yes')
+                // Clear the message after 5 seconds
+                setTimeout(() => {
+                    this.message = null;
+                }, 5000);
+                } else {
+                this.message = response.data[0].Message;
+                }
+            })
+            .catch((error) => {
+              console.error('Error uploading file', error);
+            })
+               
+      },
     copyText() {
       // Create a temporary textarea element
       const textarea = document.createElement('textarea');
       textarea.value = this.text;
       document.body.appendChild(textarea);
       
-      // Select and copy the text
+      // Select and copy the text 
       textarea.select();
       document.execCommand('copy');
       

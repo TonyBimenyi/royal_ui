@@ -21,10 +21,11 @@ ion-content::part(background) {
 .user{
     display: flex;
 }
-.user img{
-    height: 50px;
+.img i{
+    padding: 10px 13px;
     border-radius: 100px;
     border: 5px solid var(--vert_bg);
+    color: black;
 }
 .user .username{
     margin-top: -15px;

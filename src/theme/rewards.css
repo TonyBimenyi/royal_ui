@@ -2,6 +2,14 @@
     --background:var(--jaune_bg);
     
 }
+
+    /* margin-left: 29%; */
+   
+
+.tootbar{
+    --background:transparent;
+    color: black;
+}
 .profile_content ion-item{
     --background: transparent; /* Set item background color to white */
     border-style: none;
@@ -28,7 +36,7 @@ ion-content::part(background) {
   
   .card {
     position: relative;
-    height:230px;
+    height:auto;
     background: linear-gradient(45deg, #FFD700, #8B4513);
 
     border-radius: 10px;
@@ -42,7 +50,7 @@ ion-content::part(background) {
     right: 0;
     width: 0;
     height: 0;
-    border-left: 200px solid transparent;
+    border-left: 70px solid transparent;
     border-bottom: 100px solid #ffffff;
   }
   .user{
@@ -54,9 +62,9 @@ ion-content::part(background) {
 .user img{
     height: 50px;
     border-radius: 100px;
-    border: 5px solid var(--vert_bg) ;
+    border: 5px solid white ;
     width: 50px;
-    padding:06px;
+    /* padding:06px; */
     background-color: white;
 }
 .user .username{
@@ -160,7 +168,7 @@ ion-list{
     /* margin-top: 50px; */
 }
 .logo_{
-    height: 80px;
+    height: 50px;
     position: absolute;
     bottom: 0;
     right: 0;

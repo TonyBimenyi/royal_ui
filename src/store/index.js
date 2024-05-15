@@ -6,18 +6,18 @@ export default createStore({
     url:'https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=',
     formData: {
       // Initialize your form data here
-      Fname: '',
-      Lname: '',
-      password: '',
-      confirm_pass: '',
-      phone: '',
+ 
     },
+    points:{},
     user:null,  
-    promos:[],
+    promos:[],  
   },
   mutations: {
-    updateFormData(state, formData) {
-      state.formData = formData;
+    updatePoints(state, points) {
+      state.points = points;
+    },
+    updateFormData(state, payload) {
+      state.formData = { ...state.formData, ...payload }
     },
     login(state, user) {
         state.user = user;
@@ -37,7 +37,13 @@ export default createStore({
         }
       }
   },
+  actions:{
+    updateFormData({ commit }, payload) {
+      commit('updateFormData', payload)
+    }
+  },
   getters: {
+    formData: state => state.formData,
     user : state =>{
       if(state.user === null){
           return JSON.parse(localStorage.getItem('user'))

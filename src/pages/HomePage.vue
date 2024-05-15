@@ -6,11 +6,11 @@
                 <ion-label>
                     <div class="user">
                         <div class="img">
-                            <img src="../theme/images/login_bg.png" alt="">
+                            <img src="../theme/images/logo2.png" alt="">
                         </div>
                         <div class="username">
                             <p class="welcome_txt">{{greeting}}</p>
-                            <p class="username_txt">{{this.$store.getters.user.Fname}} {{this.$store.getters.user.Lname}}</p>
+                            <p class="username_txt">{{this.$store.getters.user.Fname}} {{this.$store.getters.user.Lname}}</p> 
                         </div>
                     </div>
                 </ion-label>
@@ -35,18 +35,20 @@
                             <router-link class="link" to="/send">
                             <i class="fa fa-outdent" aria-hidden="true"></i>
                                 </router-link>
-                            <p>Send Points</p>
+                            <p>Envoyer Points</p>
                         </ion-col>
                  
                         <ion-col class="point_txt">
                           <router-link class="link" to="/receive">
                             <i class="fa fa-indent" aria-hidden="true"></i>
-                            <p>Receive Points</p>
+                            <p>Recevoir Points</p>
                           </router-link>
                         </ion-col>
                         <ion-col class="point_txt">
+                          <router-link class="link" to="/rewards">
                             <i class="fa fa-gift" aria-hidden="true"></i>
-                            <p>Rewards</p>
+                            <p>Prix</p>
+                          </router-link>
                         </ion-col>
                     
 
@@ -55,7 +57,7 @@
                 </ion-card-content>
             </ion-card>
             
-        <h3 class="title_princi"><span><i class="fa fa-caret-right" aria-hidden="true"></i></span> Requested Ads</h3>
+        <h3 class="title_princi"><span><i class="fa fa-caret-right" aria-hidden="true"></i></span> Les Publicités </h3>
         
 
         <div class="slides" :style="{transform: `translateX(-${currentIndex * 100}%)`}">
@@ -76,7 +78,7 @@
               @click="goToSlide(index)"
             ></span>
           </div>
-        <h3 class="title_princi"> <span><i class="fa fa-caret-right" aria-hidden="true"></i></span>Special Promotions</h3>
+        <h3 class="title_princi"> <span><i class="fa fa-caret-right" aria-hidden="true"></i></span> Promotions Speciales</h3>
         
         <ion-list class="list_pro">
             <ion-item v-for="promo in promos" :key="promo.idPromo">
@@ -104,7 +106,7 @@
             </ion-col>
             
             <ion-col class="right">
-              <router-link to="/send">
+              <router-link to="/bars">
                <i class="fa fa-arrow-right" aria-hidden="true"></i>
               </router-link>
               </ion-col>

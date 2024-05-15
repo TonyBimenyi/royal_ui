@@ -19,9 +19,12 @@
 
            <ion-tab-button  :class="{ 'active': $route.path === '/rewards' }" tab="home">
             <div class="rew">
-            <i class="fa fa-gift" aria-hidden="true"></i><br>
+              <router-link class="link_r" to="/rewards">
+            <i :class="{ 'active_': $route.path === '/rewards'  } "  class="fa fa-gift" aria-hidden="true"></i><br>
              <ion-label class="txt_l" :class="{ 'active': $route.path === '/rewards' }">Rewards</ion-label>
+            </router-link>
             </div>
+         
            </ion-tab-button>
 
 

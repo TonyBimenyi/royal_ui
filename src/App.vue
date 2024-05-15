@@ -1,17 +1,22 @@
 <template>
   <ion-app>
-    <div v-if="this.$store.getters.user" class="">
-      <navmenu>
-      </navmenu>
+    <div class="">
+      
       <ion-router-outlet />
+      <navmenu> </navmenu>
     </div>
+    <div class="" >
+      <!-- <navmenu>
+      </navmenu> -->
+    </div>  
+    
 
-    <div class="" v-if="this.$route.path !== + '/login' || this.$route.path !== + '/register'">
+    <!-- <div class="" v-if="this.$route.path !== + '/login' || this.$route.path !== + '/register'">
      
     </div>
     <div class="" v-else>
       <p>asdj</p>
-    </div>
+    </div> -->
   
   </ion-app>
 </template>
@@ -30,7 +35,7 @@ export default {
         IonItem,
         IonInput,
         IonIcon,
-        IonButton,
+        IonButton,  
         IonLabel,
         IonBadge,
         IonGrid,

@@ -8,7 +8,8 @@ import SendPoints from "../pages/SendPointsPage.vue"
 import ProfilePage from "../pages/ProfilePage.vue"
 import BarsPage from "../pages/BarsPage.vue"
 import OTPPage from "../pages/OTPPage.vue"
-
+import OTPsendPage from "../pages/OTPsendPage.vue"
+import RewardsPage from "../pages/RewardsPage.vue"
 const routes = [
   {
     path: '/',
@@ -23,6 +24,9 @@ const routes = [
   {path:'/profile',component:ProfilePage},
   {path:'/bars',component:BarsPage},
   {path:'/verification',name:'verification',component:OTPPage},
+  {path:'/verification-send',name:'verification-send',component:OTPsendPage},
+  {path:'/rewards',name:'rewards',component:RewardsPage},
+ 
  
 ]
 

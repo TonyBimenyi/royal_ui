@@ -18,9 +18,14 @@
 .active{
     color: var(--rouge_bg);
 }
+
 .link{
   text-decoration: none;
   color: grey;
+}
+.link_r{
+  text-decoration: none;
+  color: white;
 }
 .rew{
   background-color: var(--vert_bg);
