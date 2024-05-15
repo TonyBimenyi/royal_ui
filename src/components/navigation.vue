@@ -28,11 +28,11 @@
            </ion-tab-button>
 
 
-           <ion-tab-button :class="{ 'active': $route.path === '/notification' }" tab="home">
-      
-            <i class="fa fa-bell" aria-hidden="true"></i>
-             <ion-label :class="{ 'active': $route.path === '/notification' }">Notifications</ion-label>
-    
+           <ion-tab-button :class="{ 'active': $route.path === '/notifications' }" tab="home">
+            <router-link  class="link" to="/notifications">
+            <i :class="{ 'active': $route.path === '/notifications'}" class="fa fa-bell" aria-hidden="true"></i>
+             <ion-label :class="{ 'active': $route.path === '/notifications' }">Notifications</ion-label>
+            </router-link>
            </ion-tab-button>
 
            

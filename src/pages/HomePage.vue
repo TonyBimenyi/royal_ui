@@ -2,7 +2,7 @@
     <ion-page>
     <ion-content class="home_content" >
             <ion-item>
-                <ion-badge class="button_order" slot="end"><i class="fa fa-sign-out" aria-hidden="true"></i></ion-badge>
+                <ion-badge @click="logout()" class="button_order" slot="end"><i class="fa fa-sign-out" aria-hidden="true"></i></ion-badge>
                 <ion-label>
                     <div class="user">
                         <div class="img">
@@ -20,6 +20,7 @@
                     <ion-grid>
                         <ion-row>
                         <ion-col class="col_txt">
+                         
                             <p>Vos Points</p>
                             <h3>{{ hiddenNumber }}</h3>   <p @click="toggleDisplay"><i class="fa fa-eye" aria-hidden="true"></i></p>
                         </ion-col>
@@ -143,16 +144,39 @@ export default {
     },
     data() {
         return{
+          dat:{
+            code:this.$store.getters.user.code,
+        },
+        poin:{},
         greeting: '',
         promos:[],
         ads:[],
         currentIndex: 0,
-        number: this.$store.getters.user.points,
+        number: {},
       displayComplete: false,
         
         }
       },
       methods: {
+        logout(){
+        localStorage.removeItem('user')
+        // this.$router.push('/login')
+        window.location.href = "/login" 
+      },
+        getPoints(){
+          axios
+            .post('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=getPoints',this.dat)
+            .then((res)=>{
+                // this.$store.state.promos = res.data
+                this.number = res.data
+              
+            })
+            .catch((error)=>{
+                this.$toast.error(error.response.data.message)
+                console.log(error.response.data.message)
+            })
+      
+        },
         getAds(){
             axios
             .get('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=getAds')
@@ -212,13 +236,14 @@ export default {
     this.getPromos();
     this.getAds();
     this.startSlider();
+    this.getPoints();
   },
   computed: {
     hiddenNumber() {
       if (!this.displayComplete) {
         const numberString = this.number.toString();
-        const hiddenPart = '*'.repeat(numberString.length - 1);
-        return hiddenPart + numberString.slice(-1);
+        const hiddenPart = '*'.repeat(numberString.length - 0);
+        return hiddenPart ;
       } else {
         return this.number;
       }

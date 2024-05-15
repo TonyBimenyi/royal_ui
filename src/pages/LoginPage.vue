@@ -51,7 +51,7 @@
                         </ion-item>
 
                         <ion-button @click="submit()" class="login_btn" expand="block" :disabled="loading">Se Connecter</ion-button>
-                        <p>Vous n'avez pas de compte? <a href="/register"><span>Enregistrez-vous ici.</span></a> </p>
+                        <p>Vous n'avez pas de compte? <router-link to="/register"><span>Enregistrez-vous ici.</span></router-link> </p>
                     </div>
                 </div>
             </div>
@@ -79,15 +79,16 @@ export default {
     methods: {
         submit() {
   this.loading = true;
-  if (this.form.code && this.form.password) {
+  if (this.form.code && this.form.password ) {
     axios.post('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=login', this.form)
       .then((response) => {
         this.loading = false;
         if (response.data[0].Message === 1) {
           const userData = response.data[0];
+          this.message = response.data[0].Message;
           this.$store.commit("login", JSON.stringify(userData));
           this.$router.push('/home');
-          this.message = response.data[0].Message;
+          
           // Clear the message after 5 seconds
           setTimeout(() => {
             this.message = null;

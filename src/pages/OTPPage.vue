@@ -1,10 +1,36 @@
 <template>
   <ion-page>
+      <div v-if="loading" class="loading-overlay">
+          <!-- Loading spinner or animation -->
+          <div class="">
+              <img src="../theme/images/aaa.gif" alt="Loading Spinner"><br>
+          </div>
+          <div class="">
+              <p>Chargement</p>
+          </div>
+         
+        </div>
    <ion-content class="otp_content">
-    
+    <div v-if="message !== null" class="message-toast">
+      <div v-if="message === 0" class="error_messag">
+          <p>Numéro detéléphone déja utilisé</p>
+      </div>
+      <div v-if="message === 2" class="error_messag">
+          <p>une erreur est apparu lors de l'enregistrement</p>
+      </div>
+      <div v-if="message === 4" class="error_messag">
+          <p>Les mot de passes ne sont pas identiques</p>
+      </div>
+      <div v-else-if="message === 1" class="success_messag">
+          <p>Connexion avec succés</p>
+      </div>
+      <div v-else-if="message === 5" class="error_messag">
+          <p>Le code et Le mot de passe son obligatoire</p>
+      </div>
+    </div>
     <ion-toolbar class="tootbar">
         <ion-buttons >
-          <ion-button ><i class="fa fa-arrow-left" aria-hidden="true"></i></ion-button>
+          <ion-back-button default-href="/home">Back</ion-back-button>
         </ion-buttons>
         <ion-title class="toolbar_title">Verification OTP</ion-title>
     </ion-toolbar>
@@ -26,26 +52,26 @@
         <img src="../theme//images/otp.png" alt="Your Image">
     </div>
     <div class="txt_otp">
-        <p>Entrez l'OTP envoyer au <span>+257 76 16 97 02</span></p>
+        <p>Entrez l'OTP envoyer au <span>+257 {{$store.getters.user.phone}}</span></p>
     </div>
-    <p style="color:black">First Name: {{ formData.Fname }}</p>
-    <div class="otp-input-container">
-        <input 
-          v-for="(input, index) in otpInputs"
-          :key="index"
-          v-model="otpInputs[index]"
-          type="tel"
-          maxlength="1"
-          @input="handleInput(index, $event)"
-          @paste="handlePaste(index, $event)"
-          class="otp-input"
-          ref="otpInput"
-        />
-      </div>
+    <!-- <p style="color:black">First Name: {{ formData.codeSender }}</p> -->
+    <!-- <input type="text" v-model="form.Fname"> -->
+    <div class="a">
+      <!-- <p class="welcome_txt">A</p> -->
+      <ion-input  class="input_montant"
+      ref="input"
+      type="number"
+      fill="solid"
+      label=""
+      v-model="form.otp"
+      label-placement="defaut"
+      placeholder="OTP de 4 Chiffres"
+    ></ion-input>
+  </div>
       <div class="resend_otp">
         <p>Vous n'avez pas recu le code? <span>Renvoyer.</span></p>
     </div>
-    <ion-button @click="submit" class="done_btn" expand="block">Verifier</ion-button>
+    <ion-button @click="Register()" class="done_btn" expand="block">Confirmer</ion-button>
    </ion-content>
   </ion-page>
   </template>
@@ -82,100 +108,73 @@
         IonTabs,
     },
     data() {
-      return {
-        otpInputs: Array(6).fill(''), // Array to hold OTP input values
-        form: {
-          Fname: '',
-          Lname: '',
-          password: '',
-          phone: '',
-          confirm_pass :'',
-      },
-      errorMessage: "",
-      loading: null,
-      message: null, // To store the message from the API
-      };
-    },
-    methods: {
-      handleInput(index, event) {
-        // Move focus to the previous input field on "delete" key press
-        if (event.inputType === 'deleteContentBackward' && index > 0) {
-          // Delete value in current input field
-          this.otpInputs[index] = '';
-          // Move focus to the previous input field
-          this.$refs.otpInput[index - 1].focus();
-        }
-        // Move focus to the next input field when a number is entered
-        else if (index < 5 && this.otpInputs[index] !== '') {
-          this.$refs.otpInput[index + 1].focus();
-        }
-      },
-      handlePaste(index, event) {
-        // Prevent pasting multiple characters into a single input field
-        event.preventDefault();
-        const pastedData = event.clipboardData.getData('text');
-        if (/^\d$/.test(pastedData)) {
-          this.otpInputs[index] = pastedData;
-          // Move focus to the next input field
-          if (index < 5) {
-            this.$refs.otpInput[index + 1].focus();
+      return{
+          loading: null,
+          form:{
+            Fname: '',
+            Lname: '',
+            password: '',
+            phone: '',
+            otp:'',
+            type:0,
           }
-        }
-      },
-       submit() {
-      this.loading = true; // Set loading to true when the button is clicked
-
-      // Simulate loading process (you can replace this with actual loading logic)
-      setTimeout(() => {
-        this.loading = false; // Set loading to false when your data is loaded
-      }, 3000); // Adjust the time as per your requirement
-     
-        axios.post('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=saveCustomer', this.form)
-            .then((response) => {
-            this.loading = false;
-            this.message = response.data[0].Message;
-            // Clear the message after 5 seconds
-            setTimeout(() => {
-                this.message = null;
-            }, 5000);
-            })
-            .catch((error) => {
-            if (error.message == "Network Error") {
-                this.errorMessage = "Vous n'êtes pas connectzé au serveur"
-
-            } else {
-                this.errorMessage = error.response.data.message;
-                this.loading = false;
-
-                this.$toast.error(`Verifier vos identifiants!`, {
-                position: "bottom-right"
-                });
-            }
-
-            // Clear the message after 5 seconds
-            setTimeout(() => {
-                this.message = null;
-            }, 5000);
-            })
-   
-    }
-
+      }
     },
-    computed: {
-    formData() {
-      return this.$store.state.formData;
+    methods:{
+      
+          Register(){
+              this.loading = true;
+            if(this.form.otp != '1234'){
+              alert('Verifier votre OTP')
+              this.loading=false
+            }else{
+                  axios.post('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=saveCustomer', this.form)
+          .then((response) => {
+              this.loading = false;
+              if (response.data[0].Message === 1) {
+              this.message = response.data[0].Message;
+              alert('Felicitations Enregistrement Reussi')
+              this.loading=false
+              const userData = response.data[0];
+              this.$store.commit("login", JSON.stringify(userData));
+              this.$router.push('/home');
+              // Clear the message after 5 seconds
+              setTimeout(() => {
+                  this.message = null;
+              }, 5000);
+              } else {
+              this.message = response.data[0].Message;
+              }
+          })
+          .catch((error) => {
+            this.loading=false
+              if (error.message == "Network Error") {
+              this.errorMessage = "Vous n'êtes pas connectzé au serveur"
+              } else {
+              this.errorMessage = error.response.data.message;
+              this.$toast.error(`Verifier vos identifiants!`, {
+                  position: "bottom-right"
+              });
+              }
+              this.loading = false; // Make sure to handle loading state in error case as well
+          })
+      } 
+  }
+              
+          
     },
-  
-  },
   mounted() {
-    // Call the API when the component is mounted
-    this.fetchMessage();
-     console.log("Store Data:", this.$store.state.formData); // Log store data
-    this.form.Fname = this.$store.state.formData.Fname;
-    this.form.Lname = this.$store.state.formData.Lname; // Corrected assignment
-    this.form.phone = this.$store.state.formData.phone;
-    this.form.password = this.$store.state.formData.password;
-  },
+      this.form.Fname = this.$store.getters.formDataReg.Fname
+      this.form.Lname = this.$store.getters.formDataReg.Lname
+      this.form.password = this.$store.getters.formDataReg.password   
+      this.form.phone = this.$store.getters.formDataReg.phone 
+        
+   },
+  computed: {
+  formData() {
+    return this.$store.getters.formData
+  }
+}
   };
   </script>
   

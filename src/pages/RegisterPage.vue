@@ -63,13 +63,13 @@
         
                     <div class="form-input">
                         <ion-item>
-                            <ion-input type="password" class="input" label="Confirmer Mot de Passe" label-placement="floating" fill="outline" placeholder="Enter text" ></ion-input>
+                            <ion-input type="password" v-model="form.confirm_pass" class="input" label="Confirmer Mot de Passe" label-placement="floating" fill="outline" placeholder="Enter text" ></ion-input>
                         </ion-item>
 
                     
 
                         <ion-button  @click="submitForm()" class="login_btn" expand="block">S'eregistrer</ion-button>
-                        <p>You already have an  account? <a href="/login"><span>Login</span></a> .</p>
+                        <p>Vous avez deja un compte? <router-link to="/login"><span>Se connecter</span></router-link> .</p>
                     </div>
 
                     
@@ -104,48 +104,14 @@ export default {
       this.$router.push('/register');
     },
     submitForm() {  
-      // Save form data to the store
-      this.$store.commit('updateFormData', this.form);
-      // Navigate to the second page
-      this.$router.push({ name: 'verification' });
+     if(this.form.password !== this.form.confirm_pass){
+        this.message = 4;
+     }else{
+        this.$store.dispatch('updateFormDataReg', this.form)
+        this.$router.push('/verification');
+     }
     },
-    // submit() {
-    //   this.loading = true; // Set loading to true when the button is clicked
-
-    //   // Simulate loading process (you can replace this with actual loading logic)
-    //   setTimeout(() => {
-    //     this.loading = false; // Set loading to false when your data is loaded
-    //   }, 3000); // Adjust the time as per your requirement
-     
-    //     axios.post('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=saveCustomer', this.form)
-    //         .then((response) => {
-    //         this.loading = false;
-    //         this.message = response.data[0].Message;
-    //         // Clear the message after 5 seconds
-    //         setTimeout(() => {
-    //             this.message = null;
-    //         }, 5000);
-    //         })
-    //         .catch((error) => {
-    //         if (error.message == "Network Error") {
-    //             this.errorMessage = "Vous n'êtes pas connectzé au serveur"
-
-    //         } else {
-    //             this.errorMessage = error.response.data.message;
-    //             this.loading = false;
-
-    //             this.$toast.error(`Verifier vos identifiants!`, {
-    //             position: "bottom-right"
-    //             });
-    //         }
-
-    //         // Clear the message after 5 seconds
-    //         setTimeout(() => {
-    //             this.message = null;
-    //         }, 5000);
-    //         })
-   
-    // }
+    
   },
   components: {
     
@@ -162,10 +128,7 @@ export default {
     IonAlert,
   },
 
-  mounted() {
-    // Call the API when the component is mounted
-    this.fetchMessage();
-  },
+
 }
 </script>
 

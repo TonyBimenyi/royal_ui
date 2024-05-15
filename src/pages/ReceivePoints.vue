@@ -14,7 +14,7 @@
 
           <ion-card class="cardw">
             <div class="qrcode-container">
-              <qrcode-vue class="qrcode" :value="$store.getters.user.code" :size="180" level="L" margin="1" background="#3B713E" foreground="#FFFCEF"/>
+              <qrcode-vue class="qrcode" :value="$store.getters.user.code" :size="150" level="L" margin="1" background="#B88409" foreground="#FFFCEF"/>
             </div>
             <div class="img_log">
              <img class="overlay-image" src="../theme/images/logo2.png" alt="Overlay Image">

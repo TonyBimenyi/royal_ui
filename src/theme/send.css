@@ -93,6 +93,7 @@ hr {
     margin-top: -39px;
     width: 150px;
     --padding-top: 15px;
+    --background:transparent;
 }
 .qrcode{
     font-size: 30px;
@@ -139,6 +140,7 @@ hr {
     color: black;
     border-bottom: 1px solid black;
     /* --padding-start: 10px; */
+    --background:transparent;
     --padding-end: 10px;
     font-size: 13px;
     margin-top: -24px;

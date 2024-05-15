@@ -15,7 +15,7 @@
                 
             </ion-col>
               <ion-col size="6" class="ion-text-end"> 
-                 <div class="logout_icon">
+                 <div @click="logout()" class="logout_icon">
                     <i class="fa fa-sign-out" aria-hidden="true"></i>
                  </div>
             </ion-col>
@@ -56,7 +56,7 @@
                         <div class="user">
                             <div class="username">
                                 <p class="welcome_txt">Vos Points</p>
-                                <p class="username_txt">{{this.$store.getters.user.points}}</p>
+                                <p class="username_txt">{{number}}</p>
                             </div>
                             
                         </div>
@@ -165,6 +165,7 @@ export default {
     },
     data() {
         return{
+          number:{},
         dat:{
           code:this.$store.getters.user.code,
         },
@@ -173,6 +174,25 @@ export default {
         }
       },
       methods:{
+        logout(){
+        localStorage.removeItem('user')
+        // this.$router.push('/login')
+        window.location.href = "/login" 
+      },
+        getPoints(){
+          axios
+            .post('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=getPoints',this.dat)
+            .then((res)=>{
+                // this.$store.state.promos = res.data
+                this.number = res.data
+              
+            })
+            .catch((error)=>{
+                this.$toast.error(error.response.data.message)
+                console.log(error.response.data.message)
+            })
+      
+        },
         sendData(){
             axios.post('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=getPointHistory ', this.dat)
             .then((res)=>{
@@ -188,6 +208,7 @@ export default {
     },
     mounted() {
     this.sendData();
+    this.getPoints();
 
   },
 }
