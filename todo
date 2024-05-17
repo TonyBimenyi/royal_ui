@@ -1,0 +1,40 @@
+A)  Affichage
+1. Page register
+2. Page ForgetPassword
+3. Page Voir photo(Piblicite, promotions,recentes activité
+
+
+B) Page Envoyer points
+
+1. Afficher les points DONE
+2. Scanner QrCode
+
+C) Recevoir Points
+
+1. responsive Qrcode image
+2. Copier le vrai Code Client DONE
+
+D)Page Bar 
+
+1. Diminuer hauteur des cartes minimum 5 bar visible avant de scroll down DONE
+
+E) Page Prix et notification
+
+1. 2 couleur differents
+
+F) Profile
+
+1. Enlever "A moi" si tu recoives les points DONE
+2. Mettre les point reçus en couleur verte
+3. Niveau doit etre static suivant les ponts de l'individu 
+( je vais creer Api pour obtenir classemment suivant les points)
+
+G) Recevoir points
+
+1. Couleur du QrCode utiliser noir
+
+H) Notification
+
+1. On va tester push notification et colorier les notifications non vue
+
+Le travail sera fini

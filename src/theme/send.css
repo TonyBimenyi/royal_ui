@@ -21,6 +21,9 @@ ion-content::part(background) {
 .user{
     display: flex;
 }
+.link_to{
+    text-decoration: none;
+}
 .img i{
     padding: 10px 13px;
     border-radius: 100px;

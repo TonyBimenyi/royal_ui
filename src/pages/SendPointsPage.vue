@@ -129,7 +129,7 @@
           </div>
           </div>
           <div class=""  v-if="$store.getters.user.type === 0">
-            <router-link  to="/verification-send">
+            <router-link  class="link_to" to="/verification-send">
           <ion-button  @click="goToVerif()" class="done_btn" expand="block">Envoyer</ion-button>
        
         </router-link>
