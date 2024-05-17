@@ -196,8 +196,6 @@ export default {
       }
     },
     methods: {
-     
-
       handleFileUpload(e){
             this.form.invoice = e.target.files[0]
         },
@@ -287,14 +285,21 @@ export default {
             })
       
         },
-      mounted() {
-       
-        this.getPoints();
-     
-      },
 
-  }
+      
+      
 
+  },
+
+     created(){
+   this.getPoints();
+ },
+ watch: {
+   // Watch for route changes
+   $route(to, from) {
+     this.getPoints();
+   }
+ },
   
 }
 </script>
