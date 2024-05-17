@@ -104,12 +104,12 @@
                           </div>
                           <div class="promo">
                             <div v-if="this.$store.getters.user.code === hi.codeSender" class="">
-                              <p class="username_txt">Recus de {{hi.codeReceiver}}</p>
+                              <p  class="username_txt">  Envoyer à {{hi.codeReceiver}}</p>
                             </div>
                             <div v-else class="">
-                              <p class="username_txt">Envoyer à {{hi.codeSender}} A Moi</p>
+                              <p class="username_txt"> Recus de {{hi.codeSender}} A Moi</p>
                             </div>
-                              <p class="asd">Date: {{hi.dateSent}}</p>
+                              <p id="date" class="asd">Date: {{hi.dateSent}}</p>
                               
                           </div>
                       </div>

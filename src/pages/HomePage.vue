@@ -239,13 +239,13 @@ export default {
     this.startSlider();
  
 
-  //   this.timer = setInterval(() => {
-  //       this.getPoints();
-  //     }, 5000)
+   /* this.timer = setInterval(() => {
+         this.getPoints();
+       }, 5000)*/
   },
-  // beforeDestroy() {
-  //     clearInterval(this.timer)
-  //   },
+  /* beforeDestroy() {
+       clearInterval(this.timer)
+     }*/
   created(){
     this.getPoints();
   },

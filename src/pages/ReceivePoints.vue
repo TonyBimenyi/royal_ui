@@ -79,7 +79,7 @@ export default {
       return {
         value: 'asdsadasdasd',
         size: 300,
-        text: "eruisad", // Set default text here
+        text: this.$store.getters.user.code, // Set default text here
         copied: false // Flag to track whether text has been copied
       }
     },

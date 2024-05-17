@@ -18,7 +18,7 @@ ion-content::part(background) {
  
 .card {
     position: relative;
-    height:230px;
+    height:130px;
     background: linear-gradient(45deg, #FFD700, #8B4513);
 
     border-radius: 10px;
@@ -32,14 +32,14 @@ ion-content::part(background) {
     right: 0;
     width: 0;
     height: 0;
-    border-left: 200px solid transparent;
+    border-left: 120px solid transparent;
     border-bottom: 100px solid #ffffff;
   }
   .user{
     display: flex;
 }
 .logo_{
-    height: 80px;
+    height: 60px;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -48,15 +48,15 @@ ion-content::part(background) {
 }
 .bar_name h1{
     text-align: center;
-    margin-top: 72px;
+    margin-top: 40px;
     color: white;
     font-weight:600;
-    font-size: 35px;
+    font-size: 30px;
 }
 .address p{
     text-align: center;
     color: white;
     font-weight:300;
     margin-top: -10px;
-    font-size: 13px;
+    font-size: 11px;
 }
