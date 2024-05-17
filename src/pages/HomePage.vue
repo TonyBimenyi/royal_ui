@@ -147,6 +147,7 @@ export default {
           dat:{
             code:this.$store.getters.user.code,
         },
+        timer:null,
         poin:{},
         greeting: '',
         promos:[],
@@ -236,7 +237,23 @@ export default {
     this.getPromos();
     this.getAds();
     this.startSlider();
+ 
+
+  //   this.timer = setInterval(() => {
+  //       this.getPoints();
+  //     }, 5000)
+  },
+  // beforeDestroy() {
+  //     clearInterval(this.timer)
+  //   },
+  created(){
     this.getPoints();
+  },
+  watch: {
+    // Watch for route changes
+    $route(to, from) {
+      this.getPoints();
+    }
   },
   computed: {
     hiddenNumber() {

@@ -3,13 +3,13 @@
     <ion-content class="receive_content">
         <ion-toolbar class="tootbar">
             <ion-buttons slot="start">
-              <ion-back-button default-href="/home">Back</ion-back-button>
+              <ion-back-button default-href="/home">Retour</ion-back-button>
             </ion-buttons>
-            <ion-title class="toolbar_title">Receive Points</ion-title>
+            <ion-title class="toolbar_title">Receivez les Points</ion-title>
           </ion-toolbar>
 
           <div class="address">
-            <h1>Your Address</h1>
+            <h1>Votre  QrCode</h1>
           </div>
 
           <ion-card class="cardw">
@@ -28,22 +28,22 @@
             </button>
           </div>
           <div class="address">
-            <h1>Receiving Points Guide</h1>
+            <h1>Comment recevoir les points</h1>
           </div>
           <div class="listMethod">
             <ul >
-                <li >QR Code Method
+                <li >Méthode du code QR
                     <ul>
-                        <li>Share your unique code with sender</li>
-                        <li>They can scan your code using their app to send points directly to your account</li>
-                    </ul>
-                </li>
-                <li >Address Method
-                    <ul>
-                        <li>Alternatively, share your receiving address with the sender</li>
-                        <li>They can enter your address manually in their app to send points to your account</li>
-                    </ul>
-                </li>
+                         <li>Partagez votre code unique avec l'expéditeur</li>
+                         <li>Ils peuvent scanner votre code à l'aide de leur application pour envoyer des points directement sur votre compte</li>
+                     </ul>
+                 </li>
+                 <li >Méthode d'adresse
+                     <ul>
+                         <li>Vous pouvez également partager votre adresse de réception avec l'expéditeur</li>
+                         <li>Ils peuvent saisir votre adresse manuellement dans leur application pour envoyer des points sur votre compte</li>
+                     </ul>
+                 </li>
             </ul>
           </div>
     </ion-content>

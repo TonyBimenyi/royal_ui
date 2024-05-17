@@ -30,7 +30,7 @@
                       <ion-col size="8"> 
                         <div class="user">
                             <div class="img">
-                                <img src="../theme/images/login_bg.png" alt="">
+                              <i class="fa fa-user" aria-hidden="true"></i>
                             </div>
                             <div class="username">
                                 <p class="welcome_txt">{{this.$store.getters.user.Fname}} {{this.$store.getters.user.Lname}}</p>
@@ -104,10 +104,10 @@
                           </div>
                           <div class="promo">
                             <div v-if="this.$store.getters.user.code === hi.codeSender" class="">
-                              <p class="username_txt">@De Moi A {{hi.codeSender}}</p>
+                              <p class="username_txt">Recus de {{hi.codeReceiver}}</p>
                             </div>
                             <div v-else class="">
-                              <p class="username_txt">@De{{hi.codeSender}} A Moi</p>
+                              <p class="username_txt">Envoyer à {{hi.codeSender}} A Moi</p>
                             </div>
                               <p class="asd">Date: {{hi.dateSent}}</p>
                               
@@ -166,6 +166,7 @@ export default {
     data() {
         return{
           number:{},
+          timer: null,
         dat:{
           code:this.$store.getters.user.code,
         },
@@ -176,8 +177,8 @@ export default {
       methods:{
         logout(){
         localStorage.removeItem('user')
-        // this.$router.push('/login')
-        window.location.href = "/login" 
+         this.$router.go('/login')
+        
       },
         getPoints(){
           axios
@@ -206,11 +207,28 @@ export default {
             })
         }
     },
-    mounted() {
-    this.sendData();
+    created(){
     this.getPoints();
-
+    this.sendData();
   },
+  watch: {
+    // Watch for route changes
+    $route(to, from) {
+      this.getPoints();
+      this.sendData();
+    }
+  },
+    
+    mounted() {
+      // this.timer = setInterval(() => {
+      //   this.sendData();
+      //   this.getPoints();
+      // }, 1000)
+
+    },
+    // beforeDestroy() {
+    //   clearInterval(this.timer)
+    // }
 }
 </script>
 <style src="../theme/profile.css" scoped>

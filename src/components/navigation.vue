@@ -21,7 +21,7 @@
             <div class="rew">
               <router-link class="link_r" to="/rewards">
             <i :class="{ 'active_': $route.path === '/rewards'  } "  class="fa fa-gift" aria-hidden="true"></i><br>
-             <ion-label class="txt_l" :class="{ 'active': $route.path === '/rewards' }">Rewards</ion-label>
+             <ion-label class="txt_l" :class="{ 'active': $route.path === '/rewards' }">Prix</ion-label>
             </router-link>
             </div>
          

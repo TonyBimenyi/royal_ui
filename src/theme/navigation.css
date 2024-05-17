@@ -27,11 +27,19 @@
   text-decoration: none;
   color: white;
 }
+.img i{
+  padding: 10px 13px;
+  border-radius: 100px;
+  border: 5px solid white;
+  color: white;
+}
 .rew{
   background-color: var(--vert_bg);
-  padding: 20px;
+  padding: 5px 15px;
+  height: 50px;
+  width: 50px;
   position: absolute;
-  border-radius: 100px;
+  border-radius: 500px;
   color: white;
 }
 .txt_l{
