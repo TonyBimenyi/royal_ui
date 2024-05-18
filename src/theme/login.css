@@ -80,7 +80,7 @@ ion-content{
 
   
   @keyframes fadeOut {
-    from {
+    from {  
       opacity: 1;
     }
     to {

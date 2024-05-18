@@ -69,7 +69,7 @@
                     
 
                         <ion-button  @click="submitForm()" class="login_btn" expand="block">S'eregistrer</ion-button>
-                        <p>Vous avez deja un compte? <span @click="$emit('loginEmitted')">Se connecter</span> .</p>
+                        <p>Vous avez deja un compte? <span @click="$emit('switch-view')">Se connecter</span> .</p>
                     </div>
 
                     
@@ -97,9 +97,11 @@ export default {
       errorMessage: "",
       loading: null,
       message: null, // To store the message from the API
+     
     }
   },
   methods: {
+    
     goToRegister() {
       this.$router.push('/register');
     },
@@ -108,9 +110,7 @@ export default {
         this.message = 4;
      }else{
         this.$store.dispatch('updateFormDataReg', this.form)
-        // this.$router.push('/verification');
-        this.$emit('OTPEmitted');
-        
+        this.$router.push('/verification');
      }
     },
     

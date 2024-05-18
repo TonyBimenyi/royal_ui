@@ -51,7 +51,7 @@
                         </ion-item>
 
                         <ion-button @click="submit()" class="login_btn" expand="block" :disabled="loading">Se Connecter</ion-button>
-                        <p>Vous n'avez pas de compte? <span @click="$emit('registerEmitted')">Enregistrez-vous ici.</span> </p>
+                        <p>Vous n'avez pas de compte? <span @click="$emit('switch-view')">Enregistrez-vous ici.</span> </p>
                     </div>
                 </div>
             </div>

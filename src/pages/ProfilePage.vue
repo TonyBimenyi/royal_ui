@@ -165,7 +165,7 @@ export default {
     },
     data() {
         return{
-          number:{},
+          number:'',
           timer: null,
         dat:{
           code:this.$store.getters.user.code,

@@ -52,7 +52,7 @@
         <img src="../theme//images/otp.png" alt="Your Image">
     </div>
     <div class="txt_otp">
-        <p>Entrez l'OTP envoyer au <span>+257 {{$store.getters.user.phone}}</span></p>
+        <p>Entrez l'OTP envoyer au <span>+257 748343</span></p>
     </div>
     <!-- <p style="color:black">First Name: {{ formData.codeSender }}</p> -->
     <!-- <input type="text" v-model="form.Fname"> -->

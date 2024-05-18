@@ -4,22 +4,23 @@
       <!-- Check if the user is not logged in -->
       <div v-if="!$store.state.user">
         <!-- Display the registration page -->
-        <register-page></register-page>
+        <otp-view @registerEmitted="handlerRegisterEmit" v-if="otp "></otp-view>
+        <register-page @loginEmitted="handlerLoginEmit" @OTPEmitted="handlerOTPEmit" v-if="register"></register-page>
+        <login-page @registerEmitted="handlerRegisterEmit" v-if="login "></login-page>
+        <otp-page  @registerEmitted="handlerRegisterEmit" v-if="otp "></otp-page>
+        
+        
+      
+      
         <!-- Display the login page -->
-        <login-page></login-page>
+       
         
       </div>
-      <!-- If the user is logged in, display the main content -->
-      <div v-else>
-        <!-- Check if the current route is not the registration page -->
-        <div v-if="$route.path !== '/register'">
-          <navmenu></navmenu>
-        </div>
-        <!-- Display the registration page -->
-        <div v-else>
-          <register-page></register-page>
-        </div>
+      <div v-else class="">
+        <navmenu></navmenu>
       </div>
+      <!-- If the user is logged in, display the main content -->
+ 
     </div>
 
     
@@ -37,12 +38,14 @@
 <script >
 import LoginPage from "./pages/LoginPage.vue"
 import RegisterPage from "./pages/RegisterPage.vue"
+import otpView from "../src/pages/OTPPage.vue"
 import {IonApp, IonRouterOutlet,IonTitle,IonButtons,IonToolbar,IonBackButton, IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton,IonLabel,IonBadge,IonGrid,IonRow,IonCol,IonCardContent} from "@ionic/vue"
 import QrcodeVue from 'qrcode.vue'
 import navmenu from '../src/components/navigation.vue'
 export default {
     components:{
       RegisterPage,
+      otpView,
       LoginPage,
         IonPage,
         IonContent,
@@ -67,6 +70,30 @@ export default {
         IonApp,
         IonRouterOutlet,
         navmenu
+    },
+    data(){
+      return{
+        login:true,register:true,otp:true,
+      }
+    },
+    methods:{
+      init(){
+      this.login=false
+      this.register=false
+      this.otp=false
+    },
+    handlerRegisterEmit(){
+      this.init()
+      this.register=true
+    },
+    handlerOTPEmit(){
+      this.init()
+      this.otp=true
+    },
+    handlerLoginEmit(){
+      this.init()
+      this.login=true
+    }
     },
   mounted(){
       this.$store.commit("initializeStore")

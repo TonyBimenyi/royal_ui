@@ -78,6 +78,7 @@
                     <div class="username">
                         <p class="qrcode"><i class="fa fa-qrcode" aria-hidden="true"></i></p>
                     </div>
+                   
                 </div>    
             </ion-col>
             </ion-row>
@@ -146,8 +147,12 @@
 import axios from 'axios'
 import {IonTitle,IonButtons,IonToolbar,IonBackButton, IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton,IonLabel,IonBadge,IonGrid,IonRow,IonCol,IonCardContent} from "@ionic/vue"
 import QrcodeVue from 'qrcode.vue'
+import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from 'vue-qrcode-reader'
 export default {
     components:{
+        QrcodeStream,
+        QrcodeDropZone,
+        QrcodeCapture,
         IonPage,
         IonContent,
         IonCard,
@@ -180,6 +185,7 @@ export default {
           qty:'',
 
         },
+        
         value: 'https://example.com',
         size: 300,
         text: "dshjjhsdf637", // Set default text here
