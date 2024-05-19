@@ -1,6 +1,6 @@
 A)  Affichage
-1. Page register
-2. Page ForgetPassword
+1. Page register DONE
+2. Page ForgetPassword DONE
 3. Page Voir photo(Piblicite, promotions,recentes activité
 
 
@@ -25,13 +25,13 @@ E) Page Prix et notification
 F) Profile
 
 1. Enlever "A moi" si tu recoives les points DONE
-2. Mettre les point reçus en couleur verte
+2. Mettre les point reçus en couleur verte DONE
 3. Niveau doit etre static suivant les ponts de l'individu 
 ( je vais creer Api pour obtenir classemment suivant les points)
 
 G) Recevoir points
 
-1. Couleur du QrCode utiliser noir
+1. Couleur du QrCode utiliser noir DONE
 
 H) Notification
 

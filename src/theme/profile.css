@@ -162,6 +162,11 @@ ion-list{
     text-align: end;
     /* margin-top: 50px; */
 }
+.in_points{
+    color: green;
+    text-align: end;
+    /* margin-top: 50px; */
+}
 .logo_{
     height: 80px;
     position: absolute;
@@ -170,11 +175,7 @@ ion-list{
     z-index: 1;
     padding: 10px 10px;
 }
-.in_points{
-    color: black;
-    text-align: end;
-    /* margin-top: 50px; */
-}
+
 .promo .username_txt{
     font-weight: 700;
     margin-top: 5px;

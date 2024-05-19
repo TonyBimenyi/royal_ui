@@ -147,12 +147,8 @@
 import axios from 'axios'
 import {IonTitle,IonButtons,IonToolbar,IonBackButton, IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton,IonLabel,IonBadge,IonGrid,IonRow,IonCol,IonCardContent} from "@ionic/vue"
 import QrcodeVue from 'qrcode.vue'
-import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from 'vue-qrcode-reader'
 export default {
     components:{
-        QrcodeStream,
-        QrcodeDropZone,
-        QrcodeCapture,
         IonPage,
         IonContent,
         IonCard,
