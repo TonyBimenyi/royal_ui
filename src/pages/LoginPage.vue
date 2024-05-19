@@ -48,7 +48,9 @@
                     <div class="form-input">
                         <ion-item>
                             <ion-input type="password" class="input" label="Mot de Passe" label-placement="floating" fill="outline" placeholder="Enter text" required v-model="form.password"></ion-input>
+                            
                         </ion-item>
+                        <p class="oubli">Mot de Passe Oublié?</p>
 
                         <ion-button @click="submit()" class="login_btn" expand="block" :disabled="loading">Se Connecter</ion-button>
                         <p>Vous n'avez pas de compte? <span @click="$emit('registerEmitted')">Enregistrez-vous ici.</span> </p>

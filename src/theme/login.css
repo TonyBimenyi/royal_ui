@@ -78,7 +78,9 @@ ion-content{
     border-radius: 5px;
   }
 
-  
+.oubli{
+  text-align: right !important;
+}
   @keyframes fadeOut {
     from {  
       opacity: 1;
@@ -159,7 +161,7 @@ ion-input {
 
 
 .login-form span{
-    color: #3B713E;
+    color: var(--vert_bg);
     font-weight: 700;
 }
 ion-input{

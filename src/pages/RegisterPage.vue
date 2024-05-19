@@ -104,7 +104,7 @@ export default {
       this.$router.push('/register');
     },
     submitForm() {  
-     if(this.form.password !== this.form.confirm_pass){
+     if(this.form.password !== this.form.confirm_pass ){
         this.message = 4;
      }else{
         this.$store.dispatch('updateFormDataReg', this.form)
