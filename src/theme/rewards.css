@@ -37,7 +37,8 @@ ion-content::part(background) {
   .card {
     position: relative;
     height:auto;
-    background: linear-gradient(45deg, #FFD700, #8B4513);
+    background-color: rgb(110, 110, 110);
+    /* background: linear-gradient(45deg, #FFD700, #8B4513); */
 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -53,6 +54,11 @@ ion-content::part(background) {
     border-left: 70px solid transparent;
     border-bottom: 100px solid #ffffff;
   }
+  .odd{
+        background: linear-gradient(45deg, #FFD700, #8B4513);
+
+  }
+
   .user{
     display: flex;
 }

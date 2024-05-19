@@ -18,8 +18,8 @@
                   </ion-toolbar>
   
             
-                  <div class="" v-for="rew in rewards" :key="rew.idRew">
-                <ion-card class="card">
+                  <div class="" v-for="(rew, index) in rewards" :key="rew.idRew" >
+                <ion-card class="card" :class="{'odd': index % 2 === 0, 'even': index % 2 !== 0}">
                   <img  class="logo_" src="../theme/images/logo2.png" alt="">
                   <div class="triangle"></div>
                   <ion-grid class="grr">

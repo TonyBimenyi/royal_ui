@@ -21,16 +21,17 @@
 }
 .cardw{
     --background:white;
-    display: flex;
+    /* display: flex; */
     padding: 20px;
     margin: 10px 85px;
     border-radius: 30px;
 }
 .qrcode-container {
+  margin-top: 10px;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  margin-left: 09%;
+  justify-content: center !important; /* Center horizontally */
+  align-items: center !important;
+  /* margin-left: 09%; */
 }
 .overlay-image {
     position: absolute;
