@@ -1,6 +1,7 @@
 <template>
   <ion-page>
     <ion-content class="receive_content">
+
         <ion-toolbar class="tootbar">
             <ion-buttons slot="start">
               <ion-back-button default-href="/home">Retour</ion-back-button>

@@ -86,8 +86,9 @@
                 <!-- <ion-badge class="button_order" slot="end">Order</ion-badge> -->
                 <ion-label>
                     <div class="list">
-                        <div class="img_list">
-                            <img style="max-width:100%" :src="promo.img" alt="">
+                        <div class="img_list"  @click="openImageModal(promo[5])">
+                            <img style="max-width:100%" :src="promo[5]" alt="">
+                            <!-- <img src="../theme/images/img4.jpg" alt=""> -->
                         </div>
                         <div class="promo">
                             <p class="username_txt">{{promo.nameBar}}</p>
@@ -116,9 +117,11 @@
         </ion-grid>
     </ion-content>
 </ion-page>
+<image-modal :isOpen="isImageModalOpen" :imageSrc="selectedImage" @close="closeImageModal" />
 </template>
 <script>
 import axios from 'axios'
+import ImageModal from '../components/ImageModal.vue';
 import { IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton,IonLabel,IonBadge,IonGrid,IonRow,IonCol,IonCardContent} from "@ionic/vue"
 import myImage1 from '../theme/images/img1.jpg';
 import myImage2 from '../theme/images/img2.jpg';
@@ -126,6 +129,7 @@ import myImage3 from '../theme/images/img3.jpg';
 import myImage4 from '../theme/images/img4.jpg';
 export default {
     components:{
+      ImageModal,
         IonPage,
         IonContent,
         IonCard,
@@ -148,6 +152,8 @@ export default {
             code:this.$store.getters.user.code,
         },
         timer:null,
+        isImageModalOpen: false,
+      selectedImage: '',
         poin:{},
         greeting: '',
         promos:[],
@@ -155,10 +161,19 @@ export default {
         currentIndex: 0,
         number: 0,
       displayComplete: false,
-        
+  
         }
       },
       methods: {
+        openImageModal(imageSrc) {
+      this.selectedImage = imageSrc;
+      this.isImageModalOpen = true;
+      this.$store.dispatch('updateDataPromo', imageSrc)
+    },
+    closeImageModal() {
+      this.isImageModalOpen = false;
+      this.selectedImage = '';
+    },
         logout(){
         localStorage.removeItem('user')
         // this.$router.push('/login')

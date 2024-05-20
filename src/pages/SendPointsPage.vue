@@ -1,6 +1,21 @@
 <template>
   <ion-page>
     <ion-content class="send_container" ion-padding>
+      <div v-if="message !== null" class="message-toast">
+            <div v-if="message === 1" class="error_messag">
+                <p>Points envoyés avec succes</p>
+            </div>
+            <div v-if="message === 2" class="error_messag">
+                <p>Vous n'avez pas assez des points pour effectuer ce transfert</p>
+            </div>
+            <div v-if="message === 3" class="error_messag">
+                <p>Client n'existe pas</p>
+            </div>
+            
+            <div v-else-if="message === 5" class="error_messag">
+                <p>Vous pouvez seulement transferer les points aux autres</p>
+            </div>
+      </div>
         <ion-toolbar class="tootbar">
           <router-link class="link" to="/home">
             <ion-buttons slot="start">
@@ -43,6 +58,7 @@
                         </div>
                         <div class="" v-else>
                         <p class="username_txt"> {{ number }} </p>
+                       
                       </div>
                     </div>
                 </div>    
@@ -65,15 +81,7 @@
                     </div>
                     <div class="username">
                         <p class="welcome_txt">A</p>
-                        <ion-input  class="input_numero"
-                        ref="input"
-                        type="email"
-                        fill="solid"
-                        label=""
-                        v-model="form.codeReceiver"
-                        label-placement="defaut"
-                        placeholder="Identifiant..."
-                      ></ion-input>
+                        <p class="username_txt">{{decodedString?decodedString:'Identifiant...' }}</p>
                     </div>
                 </div>
             </ion-col>
@@ -81,14 +89,15 @@
                 <div class="user">
                     <div class="username">
                         <p  @click="openScanner" class="qrcode"><i class="fa fa-qrcode" aria-hidden="true"></i></p>
-                  
-                     
                     </div>
-                   
-             
                    
                 </div>    
             </ion-col>
+
+            <div v-if="showScanner" class="scanner-container">
+                      <qrcode-stream @decode="onDecode" @init="onInit"></qrcode-stream>
+                      <ion-button @click="closeScanner" expand="full" color="danger" class="close-button">Close Scanner</ion-button>
+                </div>
             </ion-row>
           </ion-grid>
 
@@ -147,17 +156,14 @@
    
       <ion-button  @click.prevent="sendPoints" class="done_btn" expand="block">Envoyer</ion-button>
   </div>
-  <div v-if="showScanner" class="scanner-container">
-    <qrcode-stream :class="{ 'qr-decoding': isDecoding }" @decode="onDecode" @init="onInit"></qrcode-stream>
-    <ion-button @click="closeScanner" expand="full" color="danger" class="close-button">Close Scanner</ion-button>
-  </div>
+  
     </ion-content>  
   </ion-page>
 </template>
 
 <script>
 import axios from 'axios'
-import { QrcodeStream } from 'vue-qrcode-reader';
+import { QrcodeStream } from 'vue3-qrcode-reader';
 import {IonTitle,IonButtons,IonToolbar,IonBackButton, IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton,IonLabel,IonBadge,IonGrid,IonRow,IonCol,IonCardContent} from "@ionic/vue"
 import QrcodeVue from 'qrcode.vue'
 export default {
@@ -193,16 +199,17 @@ export default {
           type:this.$store.getters.user.type,
           invoice:null,
           qty:'',
-          showScanner: false,
-      scannedData: null
-
+          scannedData: null
         },
         
+        showScanner: false,
         value: 'https://example.com',
         size: 300,
         text: "dshjjhsdf637", // Set default text here
         copied: false, // Flag to track whether text has been copied
         errorMessage: "",
+        error:"",
+        decodedString:"",
         loading: null,
         message: null, // To store the message from the API
         number:'...',
@@ -220,20 +227,56 @@ export default {
     closeScanner() {
       this.showScanner = false;
     },
-      onDecode(decodedData) {
-      this.scannedData = decodedData;
-      this.showScanner = false; // Close scanner after decoding
-    },
-    onInit(promise) {
-      promise.catch(error => {
-        if (error.name === 'NotAllowedError') {
-          alert('Camera access was denied. Please allow camera access.');
-        } else if (error.name === 'NotFoundError') {
-          alert('No camera was found on this device.');
-        } else {
-          alert('An error occurred while trying to access the camera.');
+      onDecode(decodedString) {
+
+        this.form.codeReceiver= decodedString;
+
+       const  datas ={
+          
+          code: decodedString
         }
-      });
+
+        axios.post('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=getName',datas)
+              .then((res)=>{
+                  
+                this.decodedString = res.data;
+                
+              })
+              .catch((error)=>{
+                  this.$toast.error(error.response.data.message)
+                  console.log(error.response.data.message)
+              })
+
+     
+      
+      this.showScanner = false; // Close scanner after decoding
+      
+    },
+
+    async onInit(promise) {
+
+     try{
+
+      const {capabilities} = await promise
+
+
+
+     }catch(error){
+
+        if (error.name === 'NotAllowedError') {
+
+          alert('Camera access was denied. Please allow camera access.');
+
+        } else if (error.name === 'NotFoundError') {
+
+          alert('No camera was found on this device.');
+
+        } else {
+
+          alert('An error occurred while trying to access the camera.');
+
+        }
+      };
     },
       handleFileUpload(e){
             this.form.invoice = e.target.files[0]
@@ -244,7 +287,11 @@ export default {
       async sendPoints(){
 
       if (!this.form.invoice) {
-        alert('Please select a file first');
+        alert('Choisir la facture SVP!');
+        return;
+      }
+      if (!this.form.codeSender == this.form.codeReceiver) {
+        alert('');
         return;
       }
       const config = {
@@ -268,11 +315,13 @@ export default {
                 this.loading = false;
                 if (response.data[0].Message === 1) {
                 this.message = response.data[0].Message;
+
                 // resetting your v-model:
                 this.form.codeReceiver='',
                 this.form.points='',
                 this.form.invoice='',
                 this.form.qty='',
+                this.decodedString=''
                 
                 this.$router.push('/profile');
                 // Clear the message after 5 seconds
@@ -280,7 +329,9 @@ export default {
                     this.message = null;
                 }, 5000);
                 } else {
-                this.message = response.data[0].Message;
+
+                  this.message = response.data[0].Message;
+
                 }
             })
             .catch((error) => {

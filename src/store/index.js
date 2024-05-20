@@ -8,18 +8,23 @@ export default createStore({
       // Initialize your form data here
  
     },
+    promo:{},
     points:{},
     user:null,  
     promos:[],  
     formDataReg:{},
   },
   mutations: {
+    updateDataPromo(state, promo) {
+      state.promo = promo;
+    },
     updatePoints(state, points) {
       state.points = points;
     },
     updateFormData(state, payload) {
       state.formData = { ...state.formData, ...payload }
     },
+  
     updateFormDataReg(state, payload) {
       state.formDataReg = { ...state.formDataReg, ...payload }
     },
@@ -46,6 +51,9 @@ export default createStore({
       }
   },
   actions:{
+    updateDataPromo({ commit }, payload) {
+      commit('updateDataPromo', payload)
+    },
     updateFormData({ commit }, payload) {
       commit('updateFormData', payload)
     },
@@ -54,6 +62,7 @@ export default createStore({
     }
   },
   getters: {
+    promo: state=>state.promo,
     formData: state => state.formData,
     formDataReg: state => state.formDataReg,
     user : state =>{

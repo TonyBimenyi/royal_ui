@@ -114,7 +114,11 @@
                     axios.post('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=sendPoints', this.form)
             .then((response) => {
                 this.loading = false;
+                
+                console.log(response.data)
+
                 if (response.data[0].Message === 1) {
+                  
                 this.message = response.data[0].Message;
                 alert('Felicitations points envoyer')
                 this.loading=false

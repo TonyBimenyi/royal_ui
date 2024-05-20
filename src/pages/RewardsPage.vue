@@ -84,14 +84,18 @@
           return{
           
           rewards:[],
+          form:{
+            code:this.$store.getters.user.code
+          }
+
   
           }
         },
         methods:{
           sendData(){
-              axios.get('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=getRewards ', this.dat)
+              axios.post('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=getRewards',this.form)
               .then((res)=>{
-                  // this.$store.state.promos = res.data
+                  
                   this.rewards = res.data
                 
               })
