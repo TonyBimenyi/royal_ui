@@ -38,7 +38,12 @@
                 <div class="user">
                     <div class="username">
                         <p class="welcome_txt">Points</p>
-                        <p class="username_txt">{{number}}</p>
+                        <div class="" v-if="number == 0">
+                          <p class="username_txt"> 0 </p>
+                        </div>
+                        <div class="" v-else>
+                        <p class="username_txt"> {{ number }} </p>
+                      </div>
                     </div>
                 </div>    
             </ion-col>
@@ -50,7 +55,6 @@
             <hr class="ee">
             <i class="fa fa-chevron-down" aria-hidden="true"></i>
           </div>
-
 
           <ion-grid class="grr">
             <ion-row class="ion-justify-content-between">
@@ -76,8 +80,12 @@
               <ion-col size="3"> 
                 <div class="user">
                     <div class="username">
-                        <p class="qrcode"><i class="fa fa-qrcode" aria-hidden="true"></i></p>
+                        <p  @click="openScanner" class="qrcode"><i class="fa fa-qrcode" aria-hidden="true"></i></p>
+                  
+                     
                     </div>
+                   
+             
                    
                 </div>    
             </ion-col>
@@ -139,16 +147,22 @@
    
       <ion-button  @click.prevent="sendPoints" class="done_btn" expand="block">Envoyer</ion-button>
   </div>
+  <div v-if="showScanner" class="scanner-container">
+    <qrcode-stream :class="{ 'qr-decoding': isDecoding }" @decode="onDecode" @init="onInit"></qrcode-stream>
+    <ion-button @click="closeScanner" expand="full" color="danger" class="close-button">Close Scanner</ion-button>
+  </div>
     </ion-content>  
   </ion-page>
 </template>
 
 <script>
 import axios from 'axios'
+import { QrcodeStream } from 'vue-qrcode-reader';
 import {IonTitle,IonButtons,IonToolbar,IonBackButton, IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton,IonLabel,IonBadge,IonGrid,IonRow,IonCol,IonCardContent} from "@ionic/vue"
 import QrcodeVue from 'qrcode.vue'
 export default {
     components:{
+      QrcodeStream,
         IonPage,
         IonContent,
         IonCard,
@@ -179,6 +193,8 @@ export default {
           type:this.$store.getters.user.type,
           invoice:null,
           qty:'',
+          showScanner: false,
+      scannedData: null
 
         },
         
@@ -189,7 +205,7 @@ export default {
         errorMessage: "",
         loading: null,
         message: null, // To store the message from the API
-        number:{},
+        number:'...',
         timer: null,
         dat:{
           code:this.$store.getters.user.code,
@@ -198,6 +214,27 @@ export default {
       }
     },
     methods: {
+      openScanner() {
+      this.showScanner = true;
+    },
+    closeScanner() {
+      this.showScanner = false;
+    },
+      onDecode(decodedData) {
+      this.scannedData = decodedData;
+      this.showScanner = false; // Close scanner after decoding
+    },
+    onInit(promise) {
+      promise.catch(error => {
+        if (error.name === 'NotAllowedError') {
+          alert('Camera access was denied. Please allow camera access.');
+        } else if (error.name === 'NotFoundError') {
+          alert('No camera was found on this device.');
+        } else {
+          alert('An error occurred while trying to access the camera.');
+        }
+      });
+    },
       handleFileUpload(e){
             this.form.invoice = e.target.files[0]
         },
@@ -306,5 +343,18 @@ export default {
 }
 </script>
 <style src="../theme/send.css" scoped>
-
+.scanner-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
 </style>

@@ -155,6 +155,29 @@ hr {
     margin-left: auto;
     
 }
+.scanner-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.scanned-text {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Style for highlighting the QR code during decoding */
+.qr-decoding {
+  border: 4px solid #00ff00; /* Green border */
+}
 input {
     width: 300px;
     padding: 10px;

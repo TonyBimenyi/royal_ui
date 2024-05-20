@@ -18,7 +18,7 @@ ion-content::part(background) {
  
 .card {
     position: relative;
-    height:130px;
+    height:120px;
     background: linear-gradient(45deg, #FFD700, #8B4513);
 
     border-radius: 10px;
@@ -32,8 +32,8 @@ ion-content::part(background) {
     right: 0;
     width: 0;
     height: 0;
-    border-left: 120px solid transparent;
-    border-bottom: 100px solid #ffffff;
+    border-left: 80px solid transparent;
+    border-bottom: 110px solid #ffffff;
   }
   .user{
     display: flex;
@@ -51,12 +51,12 @@ ion-content::part(background) {
     margin-top: 40px;
     color: white;
     font-weight:600;
-    font-size: 30px;
+    font-size: 25px;
 }
 .address p{
     text-align: center;
     color: white;
     font-weight:300;
     margin-top: -10px;
-    font-size: 11px;
+    font-size: 10.5px;
 }

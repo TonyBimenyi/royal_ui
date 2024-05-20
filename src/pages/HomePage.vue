@@ -22,7 +22,7 @@
                         <ion-col class="col_txt">
                          
                             <p>Vos Points</p>
-                            <h3>{{ hiddenNumber }}</h3>   <p @click="toggleDisplay"><i class="fa fa-eye" aria-hidden="true"></i></p>
+                            <h3>{{ hiddenNumber }}</h3>   <p class="eye" @click="toggleDisplay"><i class="fa fa-eye" aria-hidden="true"></i></p>
                         </ion-col>
                         <ion-col></ion-col>
                         <ion-col class="qr_code"><i class="fa fa-qrcode" aria-hidden="true"></i></ion-col>
@@ -153,7 +153,7 @@ export default {
         promos:[],
         ads:[],
         currentIndex: 0,
-        number: {},
+        number: 0,
       displayComplete: false,
         
         }
@@ -257,15 +257,20 @@ export default {
   },
   computed: {
     hiddenNumber() {
+      
+
       if (!this.displayComplete) {
         const numberString = this.number.toString();
         const hiddenPart = '*'.repeat(numberString.length - 0);
         return hiddenPart ;
-      } else {
+      } else if(this.number == 0){
+        return '00' }
+      else{
         return this.number;
       }
     }
-  },
+  }
+
       
 }
 </script>

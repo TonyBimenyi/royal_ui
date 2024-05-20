@@ -22,7 +22,7 @@
             </ion-row>
           </ion-grid>
 
-              <ion-card class="card">
+              <ion-card class="card" >
                 <img  class="logo_" src="../theme/images/logo2.png" alt="">
                 <div class="triangle"></div>
                 <ion-grid class="grr">
@@ -56,14 +56,27 @@
                         <div class="user">
                             <div class="username">
                                 <p class="welcome_txt">Vos Points</p>
-                                <p class="username_txt">{{number}}</p>
+                                <div class="" v-if="number == 0">
+                                  <p class="username_txt"> 0 </p>
+                                </div>
+                                <div class="" v-else>
+                                <p class="username_txt"> {{ number }} </p>
+                              </div>
                             </div>
                             
                         </div>
                     </ion-col>
-                      <ion-col size="3"> 
+                      <ion-col size="4"> 
                         <div class="user">
-                           
+                          <div class="username">
+                            <p class="welcome_txt">Points Recus</p>
+                            <div class="" v-if="recieved == 0">
+                              <p class="username_txt"> 0 </p>
+                            </div>
+                            <div class="" v-else>
+                            <p class="username_txt"> {{ recieved }} </p>
+                          </div>
+                        </div>
                         </div>    
                     </ion-col>
                     </ion-row>
@@ -75,7 +88,7 @@
                         <div class="user">
                             <div class="username">
                                 <p class="welcome_txt">Votre Niveau</p>
-                                <p class="username_txt">GOLD</p>
+                                <p class="username_txt">{{level}}</p>
                             </div>
                             
                         </div>
@@ -165,7 +178,9 @@ export default {
     },
     data() {
         return{
-          number:'',
+          number:'...',
+          level:'...',
+          recieved:'...',
           timer: null,
         dat:{
           code:this.$store.getters.user.code,
@@ -180,6 +195,34 @@ export default {
          this.$router.go('/login')
         
       },
+      receivedPoints(){
+          axios
+            .post('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=receivedPoints',this.dat)
+            .then((res)=>{
+                // this.$store.state.promos = res.data
+                this.recieved = res.data
+              
+            })
+            .catch((error)=>{
+                this.$toast.error(error.response.data.message)
+                console.log(error.response.data.message)
+            })
+      
+        },
+      getLevel(){
+          axios
+            .post('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=getLevel',this.dat)
+            .then((res)=>{
+                // this.$store.state.promos = res.data
+                this.level = res.data
+              
+            })
+            .catch((error)=>{
+                this.$toast.error(error.response.data.message)
+                console.log(error.response.data.message)
+            })
+      
+        },
         getPoints(){
           axios
             .post('https://seesternconsulting.com/royal/ajax.php?token=b5178d23b8ad8ffb9a711fef4da57b9b&action=getPoints',this.dat)
@@ -210,12 +253,16 @@ export default {
     created(){
     this.getPoints();
     this.sendData();
+    this.getLevel(),
+    this.receivedPoints()
   },
   watch: {
     // Watch for route changes
     $route(to, from) {
       this.getPoints();
       this.sendData();
+      this.getLevel()
+      this.receivedPoints()
     }
   },
     
