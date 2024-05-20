@@ -4,10 +4,12 @@
       <!-- Check if the user is not logged in -->
       <div v-if="!$store.state.user">
         <!-- Display the registration page -->
+        <forget-page v-if="forget"></forget-page>
         <otp-view @registerEmitted="handlerRegisterEmit" v-if="otp "></otp-view>
         <register-page @loginEmitted="handlerLoginEmit" @OTPEmitted="handlerOTPEmit" v-if="register"></register-page>
-        <login-page @registerEmitted="handlerRegisterEmit" v-if="login "></login-page>
+        <login-page @forgetEmitted="handleForgetEmit" @registerEmitted="handlerRegisterEmit" v-if="login "></login-page>
         <otp-page  @registerEmitted="handlerRegisterEmit" v-if="otp "></otp-page>
+
         
         
       
@@ -39,6 +41,7 @@
 import LoginPage from "./pages/LoginPage.vue"
 import RegisterPage from "./pages/RegisterPage.vue"
 import otpView from "../src/pages/OTPPage.vue"
+import ForgetPage from "./pages/ForgetPage.vue"
 import {IonApp, IonRouterOutlet,IonTitle,IonButtons,IonToolbar,IonBackButton, IonPage,  IonContent, IonCard, IonCardHeader, IonList, IonItem, IonInput, IonIcon,IonButton,IonLabel,IonBadge,IonGrid,IonRow,IonCol,IonCardContent} from "@ionic/vue"
 import QrcodeVue from 'qrcode.vue'
 import navmenu from '../src/components/navigation.vue'
@@ -46,6 +49,7 @@ export default {
     components:{
       RegisterPage,
       otpView,
+      ForgetPage,
       LoginPage,
         IonPage,
         IonContent,
@@ -73,7 +77,7 @@ export default {
     },
     data(){
       return{
-        login:true,register:true,otp:true,
+        login:true,register:true,otp:true,forget:true
       }
     },
     methods:{
@@ -81,6 +85,7 @@ export default {
       this.login=false
       this.register=false
       this.otp=false
+      this.forget=false
     },
     handlerRegisterEmit(){
       this.init()
@@ -93,6 +98,10 @@ export default {
     handlerLoginEmit(){
       this.init()
       this.login=true
+    },
+    handleForgetEmit(){
+      this.init()
+      this.forget=true
     }
     },
   mounted(){
