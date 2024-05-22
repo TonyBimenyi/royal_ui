@@ -116,8 +116,9 @@
             </ion-row>
         </ion-grid>
     </ion-content>
+    <image-modal :isOpen="isImageModalOpen" :imageSrc="selectedImage" @close="closeImageModal" />
 </ion-page>
-<image-modal :isOpen="isImageModalOpen" :imageSrc="selectedImage" @close="closeImageModal" />
+
 </template>
 <script>
 import axios from 'axios'

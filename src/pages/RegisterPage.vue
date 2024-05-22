@@ -68,7 +68,7 @@
 
                     
 
-                        <ion-button  @click="submitForm()" class="login_btn" expand="block">S'eregistrer</ion-button>
+                        <ion-button  @click="submitForm()" class="login_btn" expand="block">S'enregistrer</ion-button>
                         <p>Vous avez deja un compte? <span @click="$emit('loginEmitted')">Se connecter</span> .</p>
                     </div>
 

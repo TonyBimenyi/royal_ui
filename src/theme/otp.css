@@ -140,11 +140,12 @@ ion-content::part(background) {
     /* padding: 5px; */
     margin: 0px 20px;
     color: white;
+    animation: fadeOut 5s forwards 10s;  /* 3s delay before starting the fadeOut */
   
     /* display: flex; */
   
     z-index: 9999; /* Ensure it's above other elements */
-    animation: fadeOut 5s forwards; /* Fade out animation for 5 seconds */
+    /* animation: fadeOut 2s forwards;  */
   }
   
   .error_messag p{
@@ -172,7 +173,7 @@ ion-content::part(background) {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Transparent background with blur */
-    backdrop-filter: blur(10px); /* Adjust the blur effect */
+    backdrop-filter: blur(20px); /* Adjust the blur effect */
     display: flex;
     justify-content: center;
     align-items: center;

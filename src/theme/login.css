@@ -80,6 +80,7 @@ ion-content{
 
 .oubli{
   text-align: right !important;
+  text-decoration: underline;
 }
   @keyframes fadeOut {
     from {  

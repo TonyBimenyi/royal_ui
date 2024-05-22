@@ -12,6 +12,8 @@
           </div>
      <ion-content class="otp_content">
       
+
+      
       <ion-toolbar class="tootbar">
           <ion-buttons >
             <ion-back-button default-href="/home">Back</ion-back-button>
@@ -19,19 +21,11 @@
           <ion-title class="toolbar_title">Verification OTP</ion-title>
       </ion-toolbar>
       <div v-if="message !== null" class="message-toast">
-        <div v-if="message === 0" class="error_messag">
-            <p>Numéro detéléphone déja utilisé</p>
+        <div class="error_messag">
+            <p>{{message}}</p>
         </div>
-        <div v-if="message === 2" class="error_messag">
-            <p>une erreur est apparu lors de l'enregistrement</p>
         </div>
-        <div v-if="message === 4" class="error_messag">
-            <p>Les mot de passes ne sont pas identiques</p>
-        </div>
-        <div v-else-if="message === 1" class="success_messag">
-            <p>Ajouté avec succés</p>
-        </div>
-      </div>        
+       
       <div class="img_">  
           <img src="../theme//images/otp.png" alt="Your Image">
       </div>
@@ -94,6 +88,7 @@
       data() {
         return{
             loading: null,
+            message: null,
             form:{
                 codeSender:'',
                 codeReceiver:'',
@@ -126,7 +121,7 @@
                 // Clear the message after 5 seconds
                 setTimeout(() => {
                     this.message = null;
-                }, 5000);
+                }, 1000);
                 } else {
                 this.message = response.data[0].Message;
                 }
@@ -141,6 +136,7 @@
                 });
                 }
                 this.loading = false; // Make sure to handle loading state in error case as well
+                this.errorMessage = error.response.data.message;
             })
         } 
     }
